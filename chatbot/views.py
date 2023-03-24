@@ -32,7 +32,7 @@ chatbot = Chat(pairs, reflections)
 
 
 def chatbot(request): #ici on appelle le chatbot : création de la vue
-    text="<h1>Bienvenue sur le Chatbot</h1>"
+    text="<h1>Welcome sur le Chatbot</h1>"
     if request.method == 'POST':
         questions = request.POST.get('questions')
         reponses = chatbot.respond(questions)
