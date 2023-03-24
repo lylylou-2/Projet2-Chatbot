@@ -1,0 +1,95 @@
+.text-accueil {
+  /*display: flex;
+  justify-content: center;*/
+}
+
+.image-accueil {
+  background-image: url(../image/logo-couple.jpg);
+  background-position: center;
+  background-size: contain;
+  min-height: 300px;
+  margin: auto;
+  background-repeat: no-repeat;
+  /*display: flex;
+  justify-content: center;*/
+}
+
+.accueil h1 {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .image-accueil {
+    background-image: url(../image/logo-couple.jpg);
+    display: block;
+  }
+  .text-accueil {
+    text-align: center;
+    font-size: 70px;
+    text-shadow: 15px 15px 15px rosybrown;
+  }
+  .accueil h1 {
+    text-align: center;
+    width: 90%;
+    padding: 5%;
+    display: block;
+    /*font-family: $police1;
+        /*font-size: 30%;
+    }
+
+    .button-accueil{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 40%;
+        margin: auto;
+
+
+        /*font-family: $police1;*/
+    /*font-size: 30%;*/
+    /*padding: 10px 20px 10px 0px*/
+    /*font-size: ...*/
+  }
+  .button-accueil button {
+    background-color: #FADBD8;
+    padding: 7px 30px 7px 30px;
+    border-radius: 40px;
+    cursor: pointer;
+    /*text-shadow: 1px 1px 1px #000;*/
+  }
+  .button {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .button-accueil button:hover {
+    background: linear-gradient(45deg, rgb(223, 140, 226) 0%, rgb(235, 184, 81) 100%);
+  }
+  .info-accueil {
+    flex-direction: row;
+    width: 90%;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    padding: 5%;
+  }
+  .info-accueil .bulle {
+    width: 160px;
+    height: 160px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .info-accueil .suivi-accueil {
+    background-color: #D6EAF8;
+    box-shadow: 10px 5px 5px rosybrown;
+  }
+  .info-accueil .projet-accueil {
+    background-color: #F8C471;
+    box-shadow: 10px 5px 5px rosybrown;
+  }
+  .info-accueil .partenaire-accueil {
+    background-color: #FADBD8;
+    box-shadow: 10px 5px 5px rosybrown;
+  }
+}/*# sourceMappingURL=accueil.css.map */

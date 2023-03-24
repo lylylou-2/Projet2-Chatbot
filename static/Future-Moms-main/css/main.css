@@ -1,0 +1,723 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Mansalva&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,300&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-image: url("../image/background-image.png");
+  background-repeat: no-repeat;
+  /* background-size: cover;*/
+  font-family: "Roboto Serif";
+}
+
+.en-tete {
+  background-color: #F8C471;
+  font-family: "Mansalva";
+  gap: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mobile {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  background-color: #F8C471;
+  text-align: center;
+}
+
+.desktop {
+  display: none;
+}
+
+.icone-mobile {
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+}
+
+.icone-nav {
+  border-radius: 5px;
+  background-color: #FADBD8;
+}
+
+/* propriétés pour que le lien hypertexte ne rendent pas les icones bleu
+ et que la ligne du lien ne soit pas là*/
+.icone-mobile a {
+  text-decoration: none;
+  color: black;
+}
+
+.en-tete a {
+  text-decoration: none;
+  color: black;
+}
+
+.en-tete-texte {
+  font-size: 25px;
+}
+
+/* pour que le nom du site et le logo ne soit pas collé aux bords*/
+.en-tete {
+  padding: 5px;
+}
+
+.icone-mobile a {
+  color: black;
+  text-decoration: none;
+}
+
+.en-tete a {
+  color: black;
+  text-decoration: none;
+}
+
+.en-tete-texte {
+  font-size: 25px;
+}
+
+.en-tete {
+  padding: 10px;
+}
+
+.icone-mobile a {
+  color: black;
+  text-decoration: none;
+}
+
+.en-tete a {
+  color: black;
+  text-decoration: none;
+}
+
+.en-tete-texte {
+  font-size: 25px;
+}
+
+.en-tete {
+  padding: 10px;
+}
+
+.image-accueil {
+  background-image: url(../image/logo-couple.jpg);
+  display: block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.text-accueil {
+  text-align: center;
+  font-size: 70px;
+  text-shadow: 15px 15px 15px rosybrown;
+}
+
+.accueil h1 {
+  text-align: center;
+  width: 90%;
+  padding: 5%;
+  display: block;
+  font-family: "Roboto Serif";
+  font-size: 100%;
+}
+
+.propvaleur {
+  text-align: center;
+  width: 90%;
+  padding: 5%;
+  font-family: "Mansalva";
+  font-size: 70%;
+}
+
+.button-accueil {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 40%;
+  margin: auto;
+  /*font-family: $police1;*/
+  /*font-size: 30%;*/
+  /*padding: 10px 20px 10px 0px*/
+  /*font-size: ...*/
+}
+
+.button-accueil button {
+  background-color: #FADBD8;
+  padding: 7px 30px 7px 30px;
+  border-radius: 40px;
+  cursor: pointer;
+  /*text-shadow: 1px 1px 1px #000;*/
+}
+
+.button {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.button-accueil button:hover {
+  background: linear-gradient(45deg, rgb(223, 140, 226) 0%, rgb(235, 184, 81) 100%);
+}
+
+.info-accueil {
+  flex-direction: row;
+  width: 90%;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  padding: 5%;
+}
+
+.info-accueil .bulle {
+  width: 160px;
+  height: 160px;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-accueil .suivi-accueil {
+  background-color: #D6EAF8;
+  box-shadow: 10px 5px 5px rosybrown;
+}
+
+.info-accueil .projet-accueil {
+  background-color: #F8C471;
+  box-shadow: 10px 5px 5px rosybrown;
+}
+
+.info-accueil .partenaire-accueil {
+  background-color: #FADBD8;
+  box-shadow: 10px 5px 5px rosybrown;
+}
+
+@media screen and (max-width: 425px) {
+  /*.text-accueil{
+      display: flex;
+      justify-content: center;*/
+  .image-accueil {
+    background-image: url(../image/logo-couple.jpg);
+    background-position: center;
+    min-height: 300px;
+    margin: auto;
+    background-repeat: no-repeat;
+    /*display: flex;
+    justify-content: center;*/
+  }
+  .info-accueil {
+    margin-bottom: 10%;
+    font-size: 10px;
+  }
+  .info-accueil .bulle {
+    width: 100px;
+    height: 100px;
+  }
+  .accueil h1 {
+    display: none;
+  }
+  .propvaleur {
+    text-align: center;
+    font-size: 40%;
+    margin-bottom: 30px;
+  }
+  .button-accueil {
+    justify-content: space-evenly;
+    width: 100%;
+  }
+}
+h1 {
+  text-align: center;
+  font-family: "Mansalva";
+  margin: 30px;
+}
+
+.login-section {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 17px;
+  border-radius: 35px;
+  width: 80%;
+  justify-content: center;
+  margin-left: 20px;
+}
+
+.login-nom, .login-prenom, .login-email, .login-date, .login-lien-partenaire {
+  margin-bottom: 20px;
+}
+
+.login-button {
+  background-color: white;
+  border-radius: 6px;
+  margin-top: 20px;
+  cursor: pointer;
+  width: 45%;
+  padding: 5px;
+  display: flex;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.consentement {
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .login-section {
+    margin: auto;
+    height: 500px;
+    gap: 45px;
+  }
+  h1 {
+    font-size: 40px;
+  }
+  .login-nom, .login-prenom, .login-email, .login-date, .login-lien-partenaire {
+    font-size: 20px;
+  }
+  button {
+    padding: 20px;
+  }
+  .consentement {
+    font-size: 20px;
+    padding-bottom: 15px;
+  }
+}
+.suivi-titre {
+  text-align: center;
+  font-size: 50px;
+  font-family: "Mansalva";
+  margin: auto;
+  padding-bottom: 50px;
+}
+
+.suivi-section {
+  padding-top: 60px;
+}
+
+.suivi-calendrier {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.calendrier {
+  background-color: white;
+  width: 30%;
+  height: 300px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.h3 {
+  font-size: 25px;
+  border: 5px solid rgba(0, 0, 0, 0.251);
+  border-radius: 10px;
+  text-align: center;
+  margin: 15px;
+}
+
+.td {
+  border: 1px solide rgb(0, 0, 0);
+  border-radius: 100%;
+  padding: 3px;
+  font-size: 15px;
+  margin: 0px;
+}
+
+.event1 {
+  background-color: rgb(211, 30, 94);
+}
+
+.event2 {
+  background-color: rgba(211, 139, 30, 0.669);
+}
+
+.event3 {
+  background-color: rgb(30, 199, 211);
+}
+
+.suivi-text {
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 250px;
+  height: 50px;
+  font-size: 1.7em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*.suivi-image{
+    background-image:url("../image/calendrier.png") ;  
+    width: 250px;
+    height: 300px;
+    background-position: center;
+    background-size: contain;
+}*/
+.suivi-note {
+  display: flex;
+  gap: 50px;
+  padding: 60px;
+  flex-wrap: wrap;
+}
+
+.suivi-p {
+  font-family: "Roboto Serif";
+  font-size: 25px;
+}
+
+.suivi-icon1 {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(188, 49, 100, 0.378);
+}
+
+.suivi-icon2 {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(211, 139, 30, 0.669);
+}
+
+.suivi-icon3 {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(30, 199, 211);
+}
+
+@media screen and (max-width: 425px) {
+  .suivi-calendrier {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  .calendrier {
+    width: 80%;
+  }
+  .suivi-note {
+    padding: 30px;
+  }
+}
+.body-projet {
+  background-size: auto; /* je choisis auto à la place de cover sinon le bas du
+background sera trop clair et on ne verra plus très bien les icones*/
+}
+
+.titre-projet {
+  font-size: 30px;
+  font-family: "Roboto Serif";
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+}
+
+.bloc-projet {
+  margin: auto;
+  padding-bottom: 50px;
+}
+
+.projet-container {
+  display: flex;
+  gap: 20px; /*Ecarte les élements du container*/
+}
+
+.icone-projet {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.cercle-projet img {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+}
+
+.texte-projet {
+  display: flex;
+  justify-content: center;
+}
+
+/*demander pourquoi ça ne fonctionne pas
+.image-projet:hover {
+    color: pink;
+}
+*/
+.projet-container a {
+  text-decoration: none;
+  color: black;
+}
+
+@media (min-width: 768px) {
+  .body-projet {
+    background-size: cover;
+  }
+  .bloc-projet {
+    padding-bottom: 100px; /*pour que le bloc projet ne soit pas collé au footer, c'était 180px*/
+  }
+  .titre-projet {
+    font-size: 70px;
+    font-family: "Roboto Serif";
+    padding-top: 50px;
+  }
+  .cercle-projet img {
+    width: 250px;
+    height: 250px;
+  }
+}
+.section-partenaire {
+  text-align: center;
+}
+
+.section-partenaire button {
+  background-color: white;
+  border-radius: 6px;
+  margin: auto;
+  margin-top: 10px;
+  cursor: pointer;
+  width: 80%;
+  padding: 5px;
+}
+
+.section-partenaire button:hover {
+  background: linear-gradient(45deg, rgb(223, 140, 226) 0%, rgb(235, 184, 81) 100%);
+}
+
+.section-partenaire h1 {
+  font-family: "Mansalva";
+  text-align: center;
+  font-size: 32px;
+  padding: 20px;
+}
+
+.section-partenaire h2, .section-partenaire h3 {
+  font-family: "Mansalva";
+  font-size: 20px;
+  /*option*/
+  /*color: #fff;
+  background: linear-gradient(45deg, rgba(223,140,226,1) 0%, rgba(235,184,81,1) 100%);*/
+}
+
+.article-partenaire img {
+  width: 250px;
+  height: 100px;
+  text-align: center;
+}
+
+.section-partenaire h2, .section-partenaire h3 {
+  font-size: 25px;
+  padding: 10px;
+}
+
+.section-partenaire p {
+  text-decoration: underline;
+  padding-top: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.section-partenaire img {
+  padding-left: 50px;
+}
+
+.souvenir-partenaire {
+  flex-direction: column;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.souvenir-partenaire img {
+  width: 290px;
+  height: 290px;
+  margin: 10px;
+  padding-right: 50px;
+}
+
+.souvenir-partenaire a {
+  color: black;
+  text-decoration: none;
+}
+
+.article-bebe3 img {
+  margin-bottom: 15px;
+}
+
+.photo-partenaire img {
+  border-radius: 15px;
+}
+
+@media (min-width: 768px) {
+  /*.section-partenaire button{
+      background-color: white;
+  	border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+      width: 100%;
+      padding: 5px;
+  }*/
+  /*.section-partenaire button:hover{
+      background: linear-gradient(45deg, rgba(223,140,226,1) 0%, rgba(235,184,81,1) 100%);
+  }*/
+  /*.section-partenaire h1{
+      font-family: $police2;
+      text-align: center;
+      font-size: 35px;
+      padding: 20px;
+  }*/
+  .photo-partenaire {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .section-partenaire h2, .section-partenaire h3 {
+    font-family: "Mansalva";
+    font-size: 35px;
+    text-align: center;
+    /*background: linear-gradient(45deg, rgba(223,140,226,1) 0%, rgba(235,184,81,1) 100%);*/
+  }
+  .section-partenaire p {
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 22px;
+    padding: 14px;
+  }
+  .souvenir-partenaire {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .souvenir-partenaire img {
+    width: 360px;
+    height: 345px;
+  }
+  .souvenir-partenaire a {
+    color: black;
+    text-decoration: none;
+  }
+  .article-partenaire {
+    width: 100%;
+    padding-bottom: 35px;
+  }
+  .article-partenaire img {
+    width: 150px;
+    height: 100px;
+  }
+  .article-couple2 p {
+    padding: 12px;
+  }
+  .couple-partenaire {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    margin: auto;
+    justify-content: space-around;
+  }
+  .bebe-partenaire {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    margin: auto;
+    justify-content: space-around;
+  }
+}
+.body-formulaire {
+  background-size: auto; /* je choisis auto à la place de cover sinon le bas du
+background sera trop clair et on ne verra plus très bien les icones*/
+}
+
+.formulaire-projet form {
+  height: 400px;
+  background-color: white;
+  width: 400px;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .desktop {
+    /*position: fixed;
+    width: 100%;
+    bottom: 0;*/
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: space-around;
+    height: 60px;
+  }
+  nav {
+    background-color: #F8C471;
+    display: flex;
+  }
+  /*Enlever le soulignement du lien hypertexte et enlever la couleur bleu du lien*/
+  .desktop a {
+    text-decoration: none;
+    color: black;
+  }
+  .en-tete {
+    display: none;
+  }
+  ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    cursor: pointer;
+  }
+  .connexion-partenaire {
+    font-size: 30px;
+    display: flex;
+    justify-content: right;
+  }
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: wheat;
+  }
+  footer ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    width: 120%;
+    cursor: pointer;
+    gap: 10px;
+  }
+  .reseaux {
+    display: flex;
+  }
+  .reseau {
+    display: flex;
+    justify-content: flex-end;
+    color: black;
+    padding: 10px;
+    border: 2px solid;
+    border-radius: 50px;
+  }
+  .mobile {
+    display: none;
+  }
+  .en-tete {
+    display: none;
+  }
+}/*# sourceMappingURL=main.css.map */
