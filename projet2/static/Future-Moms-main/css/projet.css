@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.body-projet {
+  background-size: auto; /* je choisis auto à la place de cover sinon le bas du
+   background sera trop clair et on ne verra plus très bien les icones
+
+}
+
+.titre-projet {
+    font-size: 30px;
+    font-family: $police1;
+     display: flex;
+    justify-content: center;
+    padding-top: 5px;
+    }
+
+    .bloc-projet {
+        margin: auto;
+        padding-bottom: 50px;
+    }
+
+
+.projet-container {
+    display: flex;
+    gap:20px; /*Ecarte les élements du container*/
+}
+
+
+.icone-projet {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.cercle-projet img {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+}
+
+.texte-projet {
+  display: flex;
+  justify-content: center;
+}/*# sourceMappingURL=projet.css.map */
