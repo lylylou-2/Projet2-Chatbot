@@ -5,13 +5,14 @@
 </head>
 <body>
     <h1>Tell Me</h1>
+    <div>{{message}}</div>
     <form method="POST">
         {% csrf_token %}
-        <input type="text" name="questions">
+        <input type="text" name="questions" value="{{question}}">
         <button type="submit">Envoyer</button>
     </form>
     <div id="reponses"></div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $('form').submit(function(event) {
             event.preventDefault();
@@ -19,11 +20,11 @@
                 type: 'POST',
                 url: 'chatbot/',
                 data: $('form').serialize(),
-                success: function(response) {
-                    $('#response').text(reponses.message);
+                success: function(reponses) {
+                    $('#reponses').text(reponses.questions);
                 }
             });
         });
-    </script>
+    </script> -->
 </body>
 </html>
