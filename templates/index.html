@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
+    {% load static %}
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-        <link rel="icon" type="image/jpg" href="image/bloom.jpg">
+        <link rel="stylesheet" type="text/css" href="{% static 'Future-Moms-main/css/main.css'%}">
+        <link rel="icon" type="image/jpg" href="{% static 'Future-Moms-main/image/bloom.jpg'%}">
         <script src="//kit.fontawesome.com/87cee28510.js" crossorigin="anonymous"></script>
     </head>
     <body>
-
+        {% load static %}
        <!--Le fa-3x permet d'aggrangir l'icone, 
         j'aurais aussi pu mettre 2x si je veux que ce soit moins grand-->
         <nav class="mobile">
@@ -26,19 +27,19 @@
         <!-- nav: connexion = logo-->
          <nav class="desktop">
             <ul> 
-                <li><a href="partenaire.html">TOI+MOI</a></li>
-                <li><a href="suivi.html">Suivi personnalisé</a></li>
-                <li><a href="projet.html">Projet de naissance</a></li>
+                <li><a href="{% static 'Future-Moms-main/partenaire.html'%}">TOI+MOI</a></li>
+                <li><a href="{% static 'Future-Moms-main/suivi.html'%}">Suivi personnalisé</a></li>
+                <li><a href="{% static 'Future-Moms-main/projet.html'%}">Projet de naissance</a></li>
                 <li><a href="http://www.example.com" title="explication du lien">Blog</a></li>
                 <li><a href="http://www.example.com" title="explication du lien">Newsletter</a></li>
-                <li class="connexion"><a href="login.html"><i class="fa-solid fa-user-group fa-2x"></i></a></li>
+                <li class="connexion"><a href="{% static 'Future-Moms-main/login.html'%}"><i class="fa-solid fa-user-group fa-2x"></i></a></li>
             </ul>  
         </nav>
 
 <!--en tete version mobile-->
   <div class="en-tete">
     <p class="en-tete-texte"><a href="index.html">Bloom in Two</a></p>       
-    <a href="login.html"><i class="fa-solid fa-user-group fa-2x"></i></a>
+    <a href="{% static 'login.html'%}"><i class="fa-solid fa-user-group fa-2x"></i></a>
   </div>
 
         <section class="accueil">
@@ -50,7 +51,7 @@
                     <!--button><a href="#">Un simple lien</a></button-->
 
                         <button class="decouvre"><a href="www.example.com">Je découvre</a></button>
-                        <button class="telecharge"><a href="login.html">Je télécharge</a></button>
+                        <button class="telecharge"><a href="{% static 'login.html'%}">Je télécharge</a></button>
                     </div>
                 </div>
             </div>

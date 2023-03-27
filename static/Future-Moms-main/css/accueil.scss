@@ -1,6 +1,7 @@
 
 .image-accueil{
-    background-image: url(../image/logo-couple.jpg);
+    //background-image: url(../image/logo-couple.jpg);
+    background-image: url(../image/logo-sansfond.png);
     display: block;
     background-size: contain;
     background-repeat: no-repeat;
@@ -14,8 +15,8 @@
 }
 .accueil h1{
     text-align: center;
-    width:90%;
-    padding: 5%;
+    /*width:90%;
+    padding: 5%;*/
     display:block;
     font-family: $police1;
     font-size: 100%;
@@ -23,8 +24,8 @@
 
 .propvaleur{
     text-align: center;
-    width:90%;
-    padding: 5%;
+    // width:90%;
+    // padding: 5%;
     font-family: $police2;
     font-size: 70%;
 }
@@ -104,7 +105,8 @@ padding:5%;
         justify-content: center;*/
 
         .image-accueil{
-            background-image:url(../image/logo-couple.jpg); 
+            //background-image:url(../image/logo-couple.jpg); 
+            background-image: url(../image/logo-sansfond.png);
             background-position: center;
             min-height: 300px;
             margin:auto;
