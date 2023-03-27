@@ -9,7 +9,7 @@
 body {
   background-image: url("../image/background-image.png");
   background-repeat: no-repeat;
-  /* background-size: cover;*/
+  background-size: cover;
   font-family: "Roboto Serif";
 }
 
@@ -34,6 +34,8 @@ body {
 
 .desktop {
   display: none;
+  position: fixed;
+  width: 100%;
 }
 
 .icone-mobile {
@@ -107,7 +109,7 @@ body {
 }
 
 .image-accueil {
-  background-image: url(../image/logo-couple.jpg);
+  background-image: url(../image/logo-sansfond.png);
   display: block;
   background-size: contain;
   background-repeat: no-repeat;
@@ -122,8 +124,8 @@ body {
 
 .accueil h1 {
   text-align: center;
-  width: 90%;
-  padding: 5%;
+  /*width:90%;
+  padding: 5%;*/
   display: block;
   font-family: "Roboto Serif";
   font-size: 100%;
@@ -131,8 +133,6 @@ body {
 
 .propvaleur {
   text-align: center;
-  width: 90%;
-  padding: 5%;
   font-family: "Mansalva";
   font-size: 70%;
 }
@@ -204,7 +204,7 @@ body {
       display: flex;
       justify-content: center;*/
   .image-accueil {
-    background-image: url(../image/logo-couple.jpg);
+    background-image: url(../image/logo-sansfond.png);
     background-position: center;
     min-height: 300px;
     margin: auto;
@@ -677,10 +677,11 @@ background sera trop clair et on ne verra plus très bien les icones*/
   .en-tete {
     display: none;
   }
-  ul {
+  .desktop ul {
     list-style-type: none;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     width: 100%;
     cursor: pointer;
   }
@@ -699,7 +700,7 @@ background sera trop clair et on ne verra plus très bien les icones*/
     list-style-type: none;
     display: flex;
     justify-content: space-between;
-    width: 120%;
+    width: 100%;
     cursor: pointer;
     gap: 10px;
   }
@@ -708,11 +709,12 @@ background sera trop clair et on ne verra plus très bien les icones*/
   }
   .reseau {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     color: black;
     padding: 10px;
-    border: 2px solid;
+    border: 1px solid;
     border-radius: 50px;
+    width: 15px;
   }
   .mobile {
     display: none;
