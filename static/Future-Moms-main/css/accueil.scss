@@ -6,12 +6,16 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    
+
     }
 
 .text-accueil{
     text-align: center;
     font-size: 70px;
-    text-shadow: 15px 15px 15px rosybrown; ;
+    text-shadow: 15px 15px 15px rosybrown;
+    margin-top: 30px;
+
 }
 .accueil h1{
     text-align: center;
@@ -20,6 +24,8 @@
     display:block;
     font-family: $police1;
     font-size: 100%;
+    padding-top: 200px;
+
 }
 
 .propvaleur{
