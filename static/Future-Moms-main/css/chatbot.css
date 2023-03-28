@@ -1,0 +1,36 @@
+#btnsubmit {
+        border-radius: 40px;
+        border: 1px solid;
+        background-color: #fff;
+        cursor: pointer;
+        
+    }
+    
+    #btnsubmit:hover{
+        background-color: #F8C471;
+        box-shadow: 2px 4px #999999;
+    }
+    
+    #icone-plane{
+        size: 50px;
+    
+    
+    }
+    
+    #saisiequestion{
+        border-radius: 25px 0 25px 25px;
+        width: 90%;
+        height: 50px;
+        padding: 1px;    
+        border: none;
+
+    }
+    
+    #recherche{
+        display: flex;
+        width: 90%;
+    }
+        
+    
+    
+    
