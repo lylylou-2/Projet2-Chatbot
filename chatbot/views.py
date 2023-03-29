@@ -5,46 +5,12 @@ from chatbot.models import chatbotData
 import nltk
 from nltk.chat.util import Chat, reflections
 from django.views.decorators.csrf import csrf_exempt
-
-# Create your views here.
-# pairs = [
-#     # Ajoutez ici les paires de motifs et de réponses que vous souhaitez utiliser pour votre chatbot
-#     [
-#         r"Bonjour",
-#         ["Salut!", "Bonjour", "Comment ça va ?"]
-#     ],
-#     [
-#         r"",
-#         ["", "", ""]
-#     ],
-#     [
-#         r"",
-#         ["", ""]
-#     ],
-#     [
-#         r"",
-#         ["", ""]
-#     ],
-# ]
-
- 
-
-# chatbot = Chat(pairs, reflections)
-
-# def chatbot(request): #ici on appelle le chatbot : création de la vue
-
-#     text="<h1>Welcome sur le Chatbot</h1>"
-
-#     if request.method == 'POST':
-#         questions = request.POST.get('questions')
-#         reponses = chatbot.respond(questions)
-#         return JsonResponse({'reponses': reponses})
-#     else:
-#             return render(request, 'chatbot.html')
-
-#     return HttpResponse(text)
+from nltk.tokenize import word_tokenize
+from nltk.stem.snowball import FrenchStemmer
+import unicodedata
 
 
+#le template appelle la structure du site (meme nav,footer,css)
 template = loader.get_template('index.html')
 datas= {'page':'home',
 		'nav' : [
@@ -54,22 +20,41 @@ datas= {'page':'home',
 		]
 	}
 
+#le def ici sert a definir toutes les pages (il faut modifier les pages URLS(path=chemin) et index(if et endif) pour que tout fonctionne) 
 def home(request): #ici on appelle l'accueil : création de la vue
+    #"page" est definie ds l'index
     datas['page']= 'home'
+    return HttpResponse(template.render(datas))
+
+def partenaire(request): #ici on appelle l'accueil : création de la vue
+    datas['page']= 'partenaire'
     return HttpResponse(template.render(datas))
 
 def projet(request): #ici on appelle l'accueil : création de la vue
     datas['page']= 'projet'
     return HttpResponse(template.render(datas))
 
-@csrf_exempt
+def suivi(request): #ici on appelle l'accueil : création de la vue
+    datas['page']= 'suivi'
+    return HttpResponse(template.render(datas))
+
+def login(request): #ici on appelle l'accueil : création de la vue
+    datas['page']= 'login'
+    return HttpResponse(template.render(datas))
+
+@csrf_exempt #sert a proteger le code (code de securité)
+
 def chatbot(request):
+    #il recupere les questions et reponses 
+    # datas est une variable que l'on definie nous meme (on aurait pu appeller données)
     datas['questions'] ="" 
     datas['reponses']= ""
     
+    #"POST" recupere le message qu'entre l'utilisateur c'est une fonction
     if request.method == 'POST':
         message = request.POST['message']
         pairs =[]
+        #question_reponse il recupere dans la base des données
         for question_reponse in chatbotData.objects.all():
             question = question_reponse.questions
             reponse = question_reponse.reponses
@@ -78,46 +63,68 @@ def chatbot(request):
             pairs.append(pair)
         
         chat= Chat(pairs, reflections)
-        result = chat.respond(message)
+        message_sansaccent = unicodedata.normalize('NFKD', message).encode('ASCII', 'ignore').decode('utf-8')
+        result = chat.respond(message_sansaccent)
+
         
+        #"result" et "message" est a definir dans ton index
         datas['result'] = result
         datas['message']= message
         
     datas['page']= 'chatbot'
     return HttpResponse(template.render(datas))
 
+
+# def afficher_messages(messages):
+#     # Initialiser une chaîne de caractères HTML contenant le formulaire
+#     chatbot = """
+#         <form>
+#             <label for="message">Saisir un message :</label>
+#             <input type="text" id="message" name="message">
+#             <input type="submit" value="Envoyer">
+#         </form>
+#     """
+#     #Ajouter chaque message à la chaîne HTML
+#     for message in messages:
+#         chatbot += f"<input>{message}</input>"
+#      # Renvoyer la chaîne HTML complète
+#     return chatbot
+
+# ORIGINE OK
+
+    # if request.method == 'POST':
+    #     message = request.POST['message']
+    #     pairs =[]
+    #     #question_reponse il recupere dans la base des données
+    #     for question_reponse in chatbotData.objects.all():
+    #         question = question_reponse.questions
+    #         reponse = question_reponse.reponses
+            
+    #         pair = [r"{}".format(question), reponse.split("|")]
+    #         pairs.append(pair)
         
-# def get_response(questions):
-#     trainings = chatbotData.objects.all()
-#     reponses = "Déso j'ai pas compris"
-#     for question in trainings:
-#         if question.questions in questions:
-#             reponses = question.reponses
-#             break
-#     return reponses
-
+    #     chat= Chat(pairs, reflections)
+    #     result = chat.respond(message)
         
-
-
-#faire les autres vues pour toutes les pages
-
-
-# def chatbot(request):
-#     data ={'message' : '', 'question': ''}
-#     if request.method == 'POST':
-#         questions = request.POST['questions']
-#         reponses = get_response(questions)
-#         data ={'message' : reponses, 'question': questions}
-#         #return JsonResponse({'reponses': reponses})
-#     template=loader.get_template("chatbot.html")
-#     return HttpResponse(template.render(data))
-
-# def get_response(questions):
-#     trainings = chatbotData.objects.all()
-#     question_list = [q.questions.lower() for q in trainings]
-#     if questions.lower() in question_list:
-#         q = trainings.filter(questions__iexact=questions).first()
-#         return q.reponses
-#     else:
-#         return "?? " + questions.lower()
-
+    #     #"result" et "message" est a definir dans ton index
+    #     datas['result'] = result
+    #     datas['message']= message
+        
+    # datas['page']= 'chatbot'
+    # return HttpResponse(template.render(datas))
+    
+    # # code récupéré sur chatgpt pour afficher toutes les bulles
+    # def afficher_messages(messages):
+    # # Initialiser une chaîne de caractères HTML contenant le formulaire
+    #     chatbot = """
+    #     <form>
+    #         <label for="message">Saisir un message :</label>
+    #         <input type="text" id="message" name="message">
+    #         <input type="submit" value="Envoyer">
+    #     </form>
+    # """
+    # #Ajouter chaque message à la chaîne HTML
+    # for message in messages:
+    #     chatbot += f"<p>{message}</p>"
+    #  # Renvoyer la chaîne HTML complète
+    # return chatbot
