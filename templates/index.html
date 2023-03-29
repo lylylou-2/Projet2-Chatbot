@@ -15,10 +15,10 @@
         j'aurais aussi pu mettre 2x si je veux que ce soit moins grand-->
         <nav class="mobile">
             <div class="icone-mobile">
-                <div class="icone-nav"><a href="partenaire.html"><i class="fa-solid fa-children fa-2x"></i></a></div>
-                <div class="icone-nav"><a href="suivi.html"><i class="fa-solid fa-calendar-days fa-2x"></i></a> </div>
+                <div class="icone-nav"><a href="/partenaire"><i class="fa-solid fa-children fa-2x"></i></a></div>
+                <div class="icone-nav"><a href="/suivi"><i class="fa-solid fa-calendar-days fa-2x"></i></a> </div>
 
-                <div class="icone-nav"><a href="projet.html"><i class="fa-solid fa-list-check fa-2x"></i></a> </div>
+                <div class="icone-nav"><a href="/projet"><i class="fa-solid fa-list-check fa-2x"></i></a> </div>
                 <div class="icone-nav"><a href="https://www.example.com"><i class="fa-solid fa-ellipsis-vertical fa-2x"></i></a></div>
              
         </nav>
@@ -39,8 +39,8 @@
 
 <!--en tete version mobile-->
   <div class="en-tete">
-    <p class="en-tete-texte"><a href="index.html">Bloom in Two</a></p>       
-    <a href="{% static 'login.html'%}"><i class="fa-solid fa-user-group fa-2x"></i></a>
+    <p class="en-tete-texte"><a href="/home">Bloom in Two</a></p>       
+    <a href="/login"><i class="fa-solid fa-user-group fa-2x"></i></a>
   </div>
 
   {% if page == 'home'%}
@@ -53,7 +53,7 @@
                     <!--button><a href="#">Un simple lien</a></button-->
 
                         <button class="decouvre"><a href="www.example.com">Je découvre</a></button>
-                        <button class="telecharge"><a href="{% static 'login.html'%}">Je télécharge</a></button>
+                        <button class="telecharge"><a href="/login">Je télécharge</a></button>
                     </div>
                 </div>
             </div>
@@ -66,28 +66,32 @@
         
     {% endif %}
 
+
     {%if page == 'chatbot' %}
         <section class="chatbot">
                 <h1>Quelle est votre question ?</h1>
-                <div>{{result}}</div>
+                <div class="chat-bubble user">{{message}}</div>
+               <div class="chat-bubble bot">{{result}}</div>
                 <form method="POST">
                     <div id="recherche">
                 {% csrf_token %}
-                <input id="saisiequestion" type="text" placeholder="    Ecrivez votre message ici..." name="message" value="{{message}}" >
+                <input id="saisiequestion" type="text" placeholder="    Ecrivez votre message ici..." name="message" value="{{message}}" class="chat-bubble"  >
                 <button id="btnsubmit" type="submit"><i class="fa-regular fa-paper-plane fa-lg"></i></button>
                     </div>
                 </form>
-                <div id="reponses"></div>
+                <div id="reponses"  class="chat-bubble bot" ></div> 
+        </section>
+        {% endif%}
 
 
-
-        {% comment %} 
-         <h1>Bloom In Two Assistant</h1>
-        <div class="chat-container">
+    {%comment%}
+    {%if page == 'chatbot' %}
+        <h1>Bloom In Two Assistant</h1>
         
+        <div class="chat-container">
         <div class="chat-bubble user">
             <div class="message">
-              <p class="text">J'ai un problème avec mon compte, pouvez-vous m'aider ?</p>
+              <p class="text"><!--J'ai un problème avec mon compte, pouvez-vous m'aider ?-->{{ message }}</p>
             </div>
           </div>
           <div class="chat-bubble bot">
@@ -97,15 +101,15 @@
           </div>
           <div class="chat-bubble user">
             <div class="message">
-              <p class="text">Mon nom d'utilisateur est {{username}}.</p>
+              <p class="text"><!--Mon nom d'utilisateur est {{username}}.-->{{ message }}</p>
             </div>
           </div>
           <div class="chat-bubble bot">
             <div class="message">
-              <p class="text">D'accord, je vais regarder cela pour vous. Merci de patienter un instant.</p>
+              <p class="text"><!--D'accord, je vais regarder cela pour vous. Merci de patienter un instant.-->{{ message }}</p>
             </div>
           </div>
-        </div>
+        </div> 
         {% for message in messages %}
         {% if message.type == 'question' %}
           <div class="chat-bubble user">
@@ -116,9 +120,7 @@
               
             <div class="chat-text">{{ message.content }}</div>
           </div> 
-          {% endif %}
-          {% endfor %}
-           
+          
            <div>{{message}}</div>
                  <form method="POST">
                      <div id="recherche">
@@ -127,24 +129,296 @@
                  <button id="btnsubmit" type="submit"><i class="fa-regular fa-paper-plane fa-lg"></i></button>
                      </div>
                  </form>
-                 <div id="reponses"></div> {% endcomment %}
+                 <div id="reponses"></div> 
+        </section>
+         {% endif %}
+         {% endcomment %}
 
 
+         {%if page == 'suivi' %}
+         <section class="suivi-section">
+         
+             <div class="suivi-titre"> Suivi personnalisé</div> 
+     
+             <div class="suivi-calendrier">
+                 <div class="calendrier">
+                     <h3 class="h3">Janvier</h3>
+                 <table class="janv">
+                     <tbody class="tbody">
+                         <tr class="tr">
+                         <td>1</td>
+                         <td>2</td>
+                         <td>3</td>
+                         <td>4</td>
+                         <td>5</td>
+                         <td>6</td>
+                         <td>7</td>
+                         </tr>
+                         <tr>
+                         <td>8</td>
+                         <td>9</td>
+                         <td class="event1">10</td>
+                         <td>11</td>
+                         <td>12</td>
+                         <td>13</td>
+                         <td>14</td>
+                         </tr>
+                         <tr>
+                         <td>15</td>
+                         <td>16</td>
+                         <td>17</td>
+                         <td>18</td>
+                         <td>19</td>
+                         <td class="event2">20</td>
+                         <td >21</td>
+                         </tr>
+                         <tr>
+                         <td>22</td>
+                         <td>23</td>
+                         <td>24</td>
+                         <td>25</td>
+                         <td>26</td>
+                         <td>27</td>
+                         <td>28</td>
+                         </tr>
+                         <tr>
+                         <td>29</td>
+                         <td class="event3">30</td>
+                         <td>31</td>
+                         </tr>
+                     </tbody>
+                 </table>
+                 </div> <!-- Janvier -->
+                 <div class="calendrier">
+                     <h3 class="h3">Fevrier</h3>
+                 <table class="fev">
+                     <tbody>
+                         <tr>
+                         <td>1</td>
+                         <td>2</td>
+                         <td>3</td>
+                         <td>4</td>
+                         <td>5</td>
+                         <td>6</td>
+                         <td>7</td>
+                         </tr>
+                         <tr>
+                         <td>8</td>
+                         <td>9</td>
+                         <td class="event1">10</td>
+                         <td>11</td>
+                         <td>12</td>
+                         <td>13</td>
+                         <td>14</td>
+                         </tr>
+                         <tr>
+                         <td>15</td>
+                         <td>16</td>
+                         <td>17</td>
+                         <td>18</td>
+                         <td>19</td>
+                         <td class="event2">20</td>
+                         <td >21</td>
+                         </tr>
+                         <tr>
+                         <td>22</td>
+                         <td>23</td>
+                         <td>24</td>
+                         <td>25</td>
+                         <td>26</td>
+                         <td>27</td>
+                         <td>28</td>
+                         </tr>
+                         
+                     </tbody>
+                 </table>
+                 </div> <!-- Février -->
+                 <div class="calendrier">
+                     <h3 class="h3">Mars</h3>
+                 <table class="mars">
+                     <tbody>
+                         <tr>
+                         <td>1</td>
+                         <td>2</td>
+                         <td>3</td>
+                         <td>4</td>
+                         <td>5</td>
+                         <td>6</td>
+                         <td>7</td>
+                         </tr>
+                         <tr>
+                         <td>8</td>
+                         <td>9</td>
+                         <td class="event3">10</td>
+                         <td>11</td>
+                         <td>12</td>
+                         <td>13</td>
+                         <td>14</td>
+                         </tr>
+                         <tr>
+                         <td>15</td>
+                         <td>16</td>
+                         <td>17</td>
+                         <td>18</td>
+                         <td>19</td>
+                         <td class="event1">20</td>
+                         <td>21</td>
+                         </tr>
+                         <tr>
+                         <td>22</td>
+                         <td>23</td>
+                         <td>24</td>
+                         <td>25</td>
+                         <td>26</td>
+                         <td>27</td>
+                         <td>28</td>
+                         </tr>
+                         <tr>
+                         <td>29</td>
+                         <td class="event2">30</td>
+                         <td>31</td>
+                         </tr>
+                     </tbody>
+                 </table>
+                 </div> <!--Mars -->
+             </div>
+             
+             <div class="suivi-note"> 
+                 <div class="suivi-icon1"></div>
+                 <p class="suivi-p">date d'echo</p>
+     
+                 <div class="suivi-icon2"></div>
+                 <p class="suivi-p">consulation </p>
+            
+                 <div class="suivi-icon3"></div>
+                 <p class="suivi-p"> suivi de poids</p>
+             
+             </div>
+         
+     
+     
+         </section>
+         {% endif %}
+     
+     
+         {%if page == 'partenaire' %}
+         <section class="section-partenaire"> 
+             <button><i class="fa-solid fa-magnifying-glass"></i>Rechercher un article...</button>
+                 
+     
+             <h1>TOI+MOI</h1>
+             <h2>SOUVENIRS</h2>
+         <div class="photo-partenaire">
+     
+         <div class="souvenir-partenaire">
+             
+             <div class="journal-de-bord">
+                 <p><a href="https://www.example.com">Journal De Bord</a></p>
+                 <img src="{% static '/Future-Moms-main/image/journal-de-bord.jpg'%}" alt="journal">
+             </div>
+             <div class="photo-video">
+                 <p><a href="https://www.example.com">Photos-Vidéos</a></p>
+                 <img src="{% static 'Future-Moms-main/image/photo-video.jpg'%}" alt="parents">
+             </div>
+         </div>
+         <h3>ARTICLES</h3>
+     <div class="article-partenaire">
+         <div class="couple-partenaire">
+             <div class="article-couple1">
+                 <p><a href="https://www.example.com">Grossesse</a></p>
+                 <img src="{% static 'Future-Moms-main/image/image AC1.jpg'%}" alt="1">
+             </div>
+             <div class="article-couple2">
+                 <p><a href="https://www.example.com">Prénoms</a></p>
+                 <img src="{% static 'Future-Moms-main/image/image AC2.jpg'%}" alt="2">
+             </div>
+             <div class="article-couple3">
+                 <p><a href="https://www.example.com">Actu parent</a></p>
+                 <img src="{% static 'Future-Moms-main/image/image AC3.jpg'%}" alt="3">
+             </div>
+         </div>
+     
+         <div class="bebe-partenaire">
+             <div class="article-bebe1">
+                 <p><a href="https://www.example.com">Laits pour bébé</a></p>
+                 <img src="{% static 'Future-Moms-main/image/laitbébé.jpg'%}"alt="1">
+             </div>
+             <div class="article-bebe2">
+                 <p><a href="https://www.example.com">Allaitement</a></p>
+                 <img src="{% static 'Future-Moms-main/image/image AB2.jpg'%}" alt="2">
+             </div>
+             <div class="article-bebe3">
+                 <p><a href="https://www.example.com">Voyager</a></p>
+                 <img src="{% static 'Future-Moms-main/image/image AB3.jpg'%}" alt="3">
+             </div>
+         </div>
+     </div>
+             </section>
+             {% endif %}
+     
+         {%if page == 'login' %}
+         <section class="section-login">
+             <h1>CREER UN COMPTE</h1>
+             <div class="login-section">
+             <div class="login-nom">
+                 <p>NOM</p>
+             </div>
+             <div class="login-prenom">
+                 <p>PRENOM</p>
+             </div>
+             <div class="login-email">
+                 <p>EMAIL</p>
+             </div>
+             <div class="login-date">
+                 <p>DATE DE CONCEPTION</p>
+             </div>
+             <div class="login-lien-partenaire">
+                 <p>LIER NUMERO DU PARTENAIRE</p>
+             </div>
+             </div>
+             <button class="login-button"><a href="/partenaire">S'inscrire</a></button>
+             <div class="consentement">
+                 <input type="checkbox" id="check">
+                 <label for="check">Je consens au traitement de mes données personnelles et j'ai lu les conditions d'utilisation</label>
+             </div>
+             
+                     </section>
+         {% endif %}
+     
+     
+         {%if page == 'formulaire' %}
+         <section class="section-formulaire">
+             <div class="formulaire-projet">
+                 <form method="get" action="">
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. ?: <br>
+                 <input type="checkbox" name="choix" id="lorem"><label for="choix">Choix 1</label> <br>
+                 <input type="checkbox" name="ballon" id="ballon"><label for="ballon">Lorem</label> <br>
+                 <input type="checkbox" name="choix" id="lorem"><label for="choix">Choix 1</label> <br>
+                 <input type="checkbox" name="ballon" id="ballon"><label for="ballon">Lorem</label> <br>
+         
+                     <br>
+         
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. ?: <br>
+                     <input type="checkbox" name="choix" id="lorem"><label for="choix">Choix 1</label> <br>
+                     <input type="checkbox" name="ballon" id="ballon"><label for="ballon">Lorem</label> <br>
+                     <input type="checkbox" name="choix" id="lorem"><label for="choix">Choix 1</label> <br>
+                     <input type="checkbox" name="ballon" id="ballon"><label for="ballon">Lorem</label> <br>    
+         
+                     <br>
+         
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. ?: <br>
+                     <input type="checkbox" name="choix" id="lorem"><label for="choix">Choix 1</label> <br>
+                     <input type="checkbox" name="ballon" id="ballon"><label for="ballon">Lorem</label> <br>
+                     <input type="checkbox" name="choix" id="lorem"><label for="choix">Choix 1</label> <br>
+                     <input type="checkbox" name="ballon" id="ballon"><label for="ballon">Lorem</label> <br>
+         
+             </div>
+             
+             </form>
+         </section>
+         {% endif %}
 
-
-
-
-
-    </section>
-    {% endif %}
-
-
-    {%if page == 'suivi' %}
-contenu à mettre
-    {% endif %}
-
-
-    {%if page == 'projet' %}
+         {%if page == 'projet' %}
     <section class="section-projet">
         <div class="bloc-projet">
 
@@ -159,7 +433,7 @@ de bouger deux par deux en  version mobile-->
          <!--La balise a me permet de créer un lien vers le formulaire,il faut encadrer
             l'élément qui doit avoir le lien, j'encadre
         image et texte car je veux le lien sur les deux-->               
-                      <a  class="formulaire" href="formulaire.html">
+                      <a  class="formulaire" href="/formulaire">
                         <img src="{% static 'Future-Moms-main/image/environnement.png'%}" alt="environnement">
                     </div>
                     <p class="texte-projet">Environnement</p>
@@ -168,8 +442,8 @@ de bouger deux par deux en  version mobile-->
 
                 <div class="element-projet">
                     <div class="cercle-projet">
-                        <a class="formulaire" href="formulaire.html">
-                             <img src="image/douleur.png" alt="douleur">
+                        <a class="formulaire" href="/formulaire">
+                             <img src="{% static 'Future-Moms-main/image/douleur.png'%}" alt="douleur">
                     </div>
                     <p class="texte-projet">Douleur</p>
                 </a>
@@ -180,9 +454,9 @@ de bouger deux par deux en  version mobile-->
                 <div class="projet-container"> 
                     <div class="element-projet">
                     <div class="cercle-projet">
-                        <a class="formulaire" href="formulaire.html">
-                        <a class="formulaire" href="formulaire.html"> 
-                            <img src="image/Femme enceinte.png" alt="travail">
+                        <a class="formulaire" href="/formulaire">
+                        <a class="formulaire" href="/formulaire"> 
+                            <img src="{% static 'Future-Moms-main/image/Femme enceinte.png'%}" alt="travail">
                     </div>
                     <p class="texte-projet">Pendant le travail</p>
                 </a>
@@ -191,8 +465,8 @@ de bouger deux par deux en  version mobile-->
 
                 <div class="element-projet">
                     <div class="cercle-projet">
-                        <a  class ="formulaire" href="formulaire.html" >
-                        <img class="image-projet" src="image/materiel-naissance.png" alt="materiel">
+                        <a  class ="formulaire" href="/formulaire" >
+                        <img class="image-projet" src="{% static 'Future-Moms-main/image/materiel-naissance.png'%}" alt="materiel">
                     </div>
                     <p class="texte-projet">Matériel</p>
                 </a>
@@ -203,8 +477,8 @@ de bouger deux par deux en  version mobile-->
             <div class="projet-container"> 
                 <div class="element-projet">
                     <div class="cercle-projet">
-                        <a class ="formulaire" href="formulaire.html"> 
-                            <img src="image/cordon.png"  alt="cordon">
+                        <a class ="formulaire" href="/formulaire"> 
+                            <img src="{% static 'Future-Moms-main/image/cordon.png'%}"  alt="cordon">
                     </div>
                             <p class="texte-projet">Cordon ombilical</p>
                  </a> 
@@ -213,8 +487,8 @@ de bouger deux par deux en  version mobile-->
                 
                 <div class="element-projet">
                     <div class="cercle-projet">
-                        <a class="formulaire" href="formulaire.html">
-                            <img src="image/naissance.png"   alt="bebe">
+                        <a class="formulaire" href="/formulaire">
+                            <img src="{% static 'Future-Moms-main/image/naissance.png'%}" alt="bebe">
                     </div>
                     <p class="texte-projet">Naissance</p>
                 </a>
@@ -226,8 +500,8 @@ de bouger deux par deux en  version mobile-->
             <div class="projet-container"> 
                 <div class="element-projet">
                 <div class="cercle-projet">
-                    <a href="formulaire.html"> 
-                        <img src="image/allaitement.png"   alt="allaitement">
+                    <a href="/formulaire"> 
+                        <img src="{% static 'Future-Moms-main/image/allaitement.png'%}" alt="allaitement">
                      </div>   
                     <p class="texte-projet">Allaitement</p> 
                 </a>
@@ -236,8 +510,8 @@ de bouger deux par deux en  version mobile-->
 
                 <div class="element-projet">
                     <div class="cercle-projet">
-                        <a  class="formulaire" href="formulaire.html"> 
-                            <img src="image/autres.png" alt="Autres">
+                        <a  class="formulaire" href="/formulaire"> 
+                            <img src="{% static 'Future-Moms-main/image/autres.png'%}" alt="Autres">
                      </div>
                      <p class="texte-projet">Autres</p>
                      </a>
@@ -251,7 +525,9 @@ de bouger deux par deux en  version mobile-->
     </section>
     {% endif %}
 
-        <footer class="desktop">
+        
+
+        <footer class="desktop-footer">
             <div class="rgpd">
                 <ul class="footerList">
                     <li><a href="https://www.example.com">Contact</a></li>
