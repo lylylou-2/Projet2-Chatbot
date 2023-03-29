@@ -27,13 +27,13 @@
         <!-- nav: connexion = logo-->
          <nav class="desktop">
             <ul> 
-                <li><a href="{% static 'Future-Moms-main/partenaire.html'%}" title="Vivre la grosesse ensemble">TOI+MOI</a></li>
-                <li><a href="{% static 'Future-Moms-main/suivi.html'%}" title="Calendrier de suivi">Suivi personnalisé</a></li>
-                <li><a href="{% static 'Future-Moms-main/projet.html'%}" title="Construire votre projet">Projet de naissance</a></li>
-                <li><a href="http://www.example.com" title="Aller sur le blog">Blog</a></li>
-                <li><a href="http://www.example.com" title="Lire la newsletter">Newsletter</a></li>
-                <li><a href="{% static 'Future-Moms-main/chatbot.html'%}" title="Poser des questions">ChatBot</a></li>
-                <li class="connexion"><a href="{% static 'Future-Moms-main/login.html'%}"><i class="fa-solid fa-user-group fa-2x"></i></a></li>
+                <li><a href="/" title="Aller sur le blog">Accueil</a></li>
+                <li><a href="/partenaire" title="Vivre la grossesse ensemble">TOI+MOI</a></li>
+                <li><a href="/suivi" title="Calendrier de suivi">Suivi personnalisé</a></li>
+                <li><a href="/projet" title="Construire votre projet">Projet de naissance</a></li>
+                <li><a href="/newsletter" title="Lire la newsletter">Newsletter</a></li>
+                <li><a href="/chatbot" title="Poser des questions">ChatBot</a></li>
+                <li class="connexion"><a href="/login"><i class="fa-solid fa-user-group fa-2x"></i></a></li>
             </ul>  
         </nav>
 
@@ -43,6 +43,7 @@
     <a href="{% static 'login.html'%}"><i class="fa-solid fa-user-group fa-2x"></i></a>
   </div>
 
+  {% if page == 'home'%}
         <section class="accueil">
             <div class="image-accueil">
                 <div class="text-accueil">
@@ -63,6 +64,136 @@
             </div>
         </section>
         
+    {% endif %}
+
+    {%if page == 'chatbot' %}
+        <section class="chatbot">
+                <h1>Quelle est votre question ?</h1>
+                <div>{{result}}</div>
+                <form method="POST">
+                    <div id="recherche">
+                {% csrf_token %}
+                <input id="saisiequestion" type="text" placeholder="    Ecrivez votre message ici..." name="message" value="{{message}}" >
+                <button id="btnsubmit" type="submit"><i class="fa-regular fa-paper-plane fa-lg"></i></button>
+                    </div>
+                </form>
+                <div id="reponses"></div>
+    </section>
+    {% endif %}
+
+
+    {%if page == 'suivi' %}
+contenu à mettre
+    {% endif %}
+
+
+    {%if page == 'projet' %}
+    <section class="section-projet">
+        <div class="bloc-projet">
+
+            <div class="titre-projet">Projet naissance</div>
+<!--Faire des container de deux éléments pour leur dire 
+de bouger deux par deux en  version mobile-->
+            <div class="icone-projet">
+
+                <div class="projet-container">
+                     <div class="element-projet">
+                    <div class="cercle-projet">
+         <!--La balise a me permet de créer un lien vers le formulaire,il faut encadrer
+            l'élément qui doit avoir le lien, j'encadre
+        image et texte car je veux le lien sur les deux-->               
+                      <a  class="formulaire" href="formulaire.html">
+                        <img src="{% static 'Future-Moms-main/image/environnement.png'%}" alt="environnement">
+                    </div>
+                    <p class="texte-projet">Environnement</p>
+                </a>
+                </div>
+
+                <div class="element-projet">
+                    <div class="cercle-projet">
+                        <a class="formulaire" href="formulaire.html">
+                             <img src="image/douleur.png" alt="douleur">
+                    </div>
+                    <p class="texte-projet">Douleur</p>
+                </a>
+                       
+                </div>
+            </div>
+               
+                <div class="projet-container"> 
+                    <div class="element-projet">
+                    <div class="cercle-projet">
+                        <a class="formulaire" href="formulaire.html">
+                        <a class="formulaire" href="formulaire.html"> 
+                            <img src="image/Femme enceinte.png" alt="travail">
+                    </div>
+                    <p class="texte-projet">Pendant le travail</p>
+                </a>
+                       
+                </div>
+
+                <div class="element-projet">
+                    <div class="cercle-projet">
+                        <a  class ="formulaire" href="formulaire.html" >
+                        <img class="image-projet" src="image/materiel-naissance.png" alt="materiel">
+                    </div>
+                    <p class="texte-projet">Matériel</p>
+                </a>
+                       
+                </div>
+            </div>
+               
+            <div class="projet-container"> 
+                <div class="element-projet">
+                    <div class="cercle-projet">
+                        <a class ="formulaire" href="formulaire.html"> 
+                            <img src="image/cordon.png"  alt="cordon">
+                    </div>
+                            <p class="texte-projet">Cordon ombilical</p>
+                 </a> 
+                          
+                 </div>
+                
+                <div class="element-projet">
+                    <div class="cercle-projet">
+                        <a class="formulaire" href="formulaire.html">
+                            <img src="image/naissance.png"   alt="bebe">
+                    </div>
+                    <p class="texte-projet">Naissance</p>
+                </a>
+                        
+                </div>
+            </div>
+               
+
+            <div class="projet-container"> 
+                <div class="element-projet">
+                <div class="cercle-projet">
+                    <a href="formulaire.html"> 
+                        <img src="image/allaitement.png"   alt="allaitement">
+                     </div>   
+                    <p class="texte-projet">Allaitement</p> 
+                </a>
+                       
+                </div>
+
+                <div class="element-projet">
+                    <div class="cercle-projet">
+                        <a  class="formulaire" href="formulaire.html"> 
+                            <img src="image/autres.png" alt="Autres">
+                     </div>
+                     <p class="texte-projet">Autres</p>
+                     </a>
+                       
+                </div>
+            </div>
+            </div>  
+                   
+         </div>
+        
+    </section>
+    {% endif %}
+
         <footer class="desktop">
             <div class="rgpd">
                 <ul class="footerList">

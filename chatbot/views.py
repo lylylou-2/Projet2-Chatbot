@@ -1,10 +1,10 @@
 from django.shortcuts import render #ajout pour la création de la vue
 from django.http import HttpResponse
 from django.template import loader #ajout pour la gestion des templates
-from django.http import JsonResponse
-from .models import chatbotData
+from chatbot.models import chatbotData
 import nltk
 from nltk.chat.util import Chat, reflections
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 # pairs = [
@@ -45,30 +45,48 @@ from nltk.chat.util import Chat, reflections
 #     return HttpResponse(text)
 
 
-from django.views.decorators.csrf import csrf_exempt
-import random
+template = loader.get_template('index.html')
+datas= {'page':'home',
+		'nav' : [
+			{'label':'home', 'href':''},
+			{'label':'formulaire', 'href':'formulaire'},
+			{'label':'chatbot', 'href':'chatbot'},
+		]
+	}
+
+def home(request): #ici on appelle l'accueil : création de la vue
+    datas['page']= 'home'
+    return HttpResponse(template.render(datas))
+
+def projet(request): #ici on appelle l'accueil : création de la vue
+    datas['page']= 'projet'
+    return HttpResponse(template.render(datas))
 
 @csrf_exempt
 def chatbot(request):
-    data ={'message' : '', 'question': ''}
+    datas['questions'] ="" 
+    datas['reponses']= ""
+    
     if request.method == 'POST':
-        questions = request.POST['questions']
-        reponses = get_response(questions)
-        data ={'message' : reponses, 'question': questions}
-        #return JsonResponse({'reponses': reponses})
-    template=loader.get_template("chatbot.html")
-    return HttpResponse(template.render(data))
+        message = request.POST['message']
+        pairs =[]
+        for question_reponse in chatbotData.objects.all():
+            question = question_reponse.questions
+            reponse = question_reponse.reponses
+            
+            pair = [r"{}".format(question), reponse.split("|")]
+            pairs.append(pair)
+        
+        chat= Chat(pairs, reflections)
+        result = chat.respond(message)
+        
+        datas['result'] = result
+        datas['message']= message
+        
+    datas['page']= 'chatbot'
+    return HttpResponse(template.render(datas))
 
-def get_response(questions):
-    trainings = chatbotData.objects.all()
-    question_list = [q.questions.lower() for q in trainings]
-    if questions.lower() in question_list:
-        q = trainings.filter(questions__iexact=questions).first()
-        return q.reponses
-    else:
-        return "?? " + questions.lower()
-
-
+        
 # def get_response(questions):
 #     trainings = chatbotData.objects.all()
 #     reponses = "Déso j'ai pas compris"
@@ -80,8 +98,26 @@ def get_response(questions):
 
         
 
-def home(request): #ici on appelle l'accueil : création de la vue
-    template=loader.get_template('index.html') #utilisation template
-    return HttpResponse(template.render())
 
 #faire les autres vues pour toutes les pages
+
+
+# def chatbot(request):
+#     data ={'message' : '', 'question': ''}
+#     if request.method == 'POST':
+#         questions = request.POST['questions']
+#         reponses = get_response(questions)
+#         data ={'message' : reponses, 'question': questions}
+#         #return JsonResponse({'reponses': reponses})
+#     template=loader.get_template("chatbot.html")
+#     return HttpResponse(template.render(data))
+
+# def get_response(questions):
+#     trainings = chatbotData.objects.all()
+#     question_list = [q.questions.lower() for q in trainings]
+#     if questions.lower() in question_list:
+#         q = trainings.filter(questions__iexact=questions).first()
+#         return q.reponses
+#     else:
+#         return "?? " + questions.lower()
+

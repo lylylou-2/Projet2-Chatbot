@@ -20,5 +20,9 @@ from chatbot import views #importe la vue
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('chatbot/', views.chatbot, name='chatbot'), #définie la fonction chemin qui appelle le chatbot
-    path('home/', views.home, name='accueil') #définie la fonction chemin qui appelle l'accueil
+    path('home/', views.home, name='accueil'), #définie la fonction chemin qui appelle l'accueil
+    path('projet/', views.projet, name='projet'), #définie la fonction chemin qui appelle l'accueil
+    path('', views.home, name='accueil') #définie la fonction chemin qui appelle l'accueil
+
+
 ]
