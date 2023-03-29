@@ -44,16 +44,59 @@
   </div>
 
     <body>
-        <h1>Quelle est votre question?</h1>
-        <div>{{message}}</div>
-        <form method="POST">
-            <div id="recherche">
-        {% csrf_token %}
-        <input id="saisiequestion" type="text" placeholder="    Ecrivrez votre message ici..." name="questions" value="{{question}}" >
-        <button id="btnsubmit" type="submit"><i class="fa-regular fa-paper-plane fa-lg"></i></button>
-            </div>
-        </form>
-        <div id="reponses"></div>
+            <h1>Bloom In Two Assistant</h1>
+
+
+    <div class="chat-container">
+       <!--<div class="chat-bubble question">
+           <div class="chat-text">Quelle est votre question?</div>
+       </div>
+       <div class="chat-bubble reponse">
+           <div class="chat-text">Voici la réponse à votre question.</div>
+       </div>-->
+       <div class="chat-bubble user">
+         <div class="message">
+           <p class="text">J'ai un problème avec mon compte, pouvez-vous m'aider ?</p>
+         </div>
+       </div>
+       <div class="chat-bubble bot">
+         <div class="message">
+           <p class="text">Bien sûr, je suis là pour ça. Pouvez-vous me donner votre nom d'utilisateur ?</p>
+         </div>
+       </div>
+       <div class="chat-bubble user">
+         <div class="message">
+           <p class="text">Mon nom d'utilisateur est {{username}}.</p>
+         </div>
+       </div>
+       <div class="chat-bubble bot">
+         <div class="message">
+           <p class="text">D'accord, je vais regarder cela pour vous. Merci de patienter un instant.</p>
+         </div>
+       </div>
+     </div>
+     {% for message in messages %}
+     {% if message.type == 'question' %}
+       <div class="chat-bubble user">
+         <div class="chat-text">{{ message.content }}</div>
+       </div>
+     {% elif message.type == 'reponse' %}
+       <div class="chat-bubble bot">
+           
+         <div class="chat-text">{{ message.content }}</div>
+       </div>
+     {% endif %}
+    {% endfor %}
+     
+     <div>{{message}}</div>
+           <form method="POST">
+               <div id="recherche">
+           {% csrf_token %}
+           <input id="saisiequestion" type="text" placeholder="    Ecrivrez votre message ici..." name="questions" value="{{question}}" >
+           <button id="btnsubmit" type="submit"><i class="fa-regular fa-paper-plane fa-lg"></i></button>
+               </div>
+           </form>
+           <div id="reponses"></div>
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $('form').submit(function(event) {
