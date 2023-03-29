@@ -24,4 +24,5 @@ urlpatterns = [
     path('projet/', views.projet, name='projet'), #définie la fonction chemin qui appelle l'accueil
     path('', views.home, name='accueil') #définie la fonction chemin qui appelle l'accueil
 
+
 ]

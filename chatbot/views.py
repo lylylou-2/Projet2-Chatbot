@@ -62,7 +62,6 @@ def projet(request): #ici on appelle l'accueil : création de la vue
     datas['page']= 'projet'
     return HttpResponse(template.render(datas))
 
-
 @csrf_exempt
 def chatbot(request):
     datas['questions'] ="" 
