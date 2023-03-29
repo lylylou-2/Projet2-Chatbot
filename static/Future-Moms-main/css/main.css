@@ -120,7 +120,7 @@ body {
   text-align: center;
   font-size: 70px;
   text-shadow: 15px 15px 15px rosybrown;
-  margin-top: 30px;
+  padding-top: 30px;
 }
 
 .accueil h1 {
@@ -130,7 +130,6 @@ body {
   display: block;
   font-family: "Roboto Serif";
   font-size: 100%;
-  padding-top: 200px;
 }
 
 .propvaleur {
