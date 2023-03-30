@@ -83,58 +83,7 @@
         </section>
         {% endif%}
 
-
-    {%comment%}
-    {%if page == 'chatbot' %}
-        <h1>Bloom In Two Assistant</h1>
         
-        <div class="chat-container">
-        <div class="chat-bubble user">
-            <div class="message">
-              <p class="text"><!--J'ai un problème avec mon compte, pouvez-vous m'aider ?-->{{ message }}</p>
-            </div>
-          </div>
-          <div class="chat-bubble bot">
-            <div class="message">
-              <p class="text">Bien sûr, je suis là pour ça. Pouvez-vous me donner votre nom d'utilisateur ?</p>
-            </div>
-          </div>
-          <div class="chat-bubble user">
-            <div class="message">
-              <p class="text"><!--Mon nom d'utilisateur est {{username}}.-->{{ message }}</p>
-            </div>
-          </div>
-          <div class="chat-bubble bot">
-            <div class="message">
-              <p class="text"><!--D'accord, je vais regarder cela pour vous. Merci de patienter un instant.-->{{ message }}</p>
-            </div>
-          </div>
-        </div> 
-        {% for message in messages %}
-        {% if message.type == 'question' %}
-          <div class="chat-bubble user">
-            <div class="chat-text">{{ message.content }}</div>
-          </div>
-        {% elif message.type == 'reponse' %}
-          <div class="chat-bubble bot">
-              
-            <div class="chat-text">{{ message.content }}</div>
-          </div> 
-          
-           <div>{{message}}</div>
-                 <form method="POST">
-                     <div id="recherche">
-                 {% csrf_token %}
-                 <input id="saisiequestion" type="text" placeholder="    Ecrivrez votre message ici..." name="questions" value="{{question}}" >
-                 <button id="btnsubmit" type="submit"><i class="fa-regular fa-paper-plane fa-lg"></i></button>
-                     </div>
-                 </form>
-                 <div id="reponses"></div> 
-        </section>
-         {% endif %}
-         {% endcomment %}
-
-
          {%if page == 'suivi' %}
          <section class="suivi-section">
          
