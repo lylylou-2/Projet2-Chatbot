@@ -91,7 +91,7 @@ body {
 .accueil h1 {
   text-align: center;
   width: 90%;
-  padding: 5%;
+  padding:0 ;
   display: block;
   font-family: "Roboto Serif";
   font-size: 100%;
@@ -603,6 +603,31 @@ background sera trop clair et on ne verra plus très bien les icones*/
   margin: auto;
 }
 
+
+/* FOOTER */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: wheat;
+  height: 70px;
+  padding-right: 30px;
+  padding-left: 30px;
+  position:absolute;
+  bottom:0; right:0;left:0;
+}
+
+footer ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  width: 120%;
+  cursor: pointer;
+  gap: 15px;
+
+}
+
+
 @media (min-width: 768px) {
   .desktop {
     /*position: fixed;
@@ -640,25 +665,7 @@ background sera trop clair et on ne verra plus très bien les icones*/
     justify-content: right;
   }
 
-  footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: wheat;
-    height: 70px;
-    padding-right: 30px;
-    padding-left: 30px;
-  }
 
-  footer ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    width: 120%;
-    cursor: pointer;
-    gap: 15px;
-
-  }
 
   a{
     text-decoration: none;
@@ -691,7 +698,7 @@ background sera trop clair et on ne verra plus très bien les icones*/
 /* LOGIN */
 h1{
   text-align: center;
-  font-family: $police2;
+  font-family: "Mansalva";
   margin: 30px;
   
 }
@@ -758,67 +765,137 @@ button{
 }
 
 
-/* CHATBOT*/
-#btnsubmit:hover{
-    background-color: #F8C471;
-    box-shadow: 2px 4px #999999;
-  }
-  
-#saisiequestion{
-    border-radius: 25px 0 25px 25px;
-    width: 90%;
-    height: 50px;
-    padding: 1px;
-    border: none;
-  
-  }
-  
-#recherche{
-    display: flex;
-    width: 90%;
-    height: 10px;
-  }
-#saisiequestion{
-    margin-right: 20px;
-  }
-  
-.chat-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 40px;
-  }
-  
+/* CODE POUR LE CHATBOT CODE POUR LE CHATBOT */
+.chat-cadre {
+  background-color: white;
+  border-radius: 30px 30px 0 0;
+  padding:10px 20px;
+  height:57%;
+  width:75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap:8px;
+  position: absolute;
+  top: 51%; left: 50%; /* à 50%/50% du parent référent */
+  transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
+  overflow-y: auto;
+}
+
+.chat-base {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* .chat-scroll {
+  height:auto;
+}  */
+
+.zone-base{
+  display:flex;
+  flex-direction: column;
+  background-color:#FADBD8;
+  min-height:30px;
+  border-radius: 30px;
+  padding:10px 10px;
+  width: auto;
+  color: #212529;
+  margin-right: 50px;
+}
+
+/* .chat-container {
+  height:100%;
+} */
+
+.chat-text {
+  font-size: 1rem;
+}
+
+.chat-soustext {
+  font-size: 0.7rem;
+  padding-top:5px;
+}
+
+.chat-bloom {
+  font-size: 0.8rem;
+  padding-left:30px;
+}
+
+.chat-logo {
+  width:30px;
+  height: 30px;
+  padding-right:5px;
+}
+
 .chat-bubble {
-    margin: 10px;
-  }
-  
-.message {
-    max-width: 75%;
-    padding: 10px;
-    border-radius: 20px;
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  
-.text {
-    margin: 0;
-  }
-  
-.user {
-    background-color: #D6EAF8;
-    color: #212529;
-    align-self: flex-end;
-    width: 85%;
-  }
-  
+  min-height:30px;
+  border-radius: 30px;
+  padding:10px 10px;
+  width: auto; /* à tester avec fit-content */
+  color: #212529;
+}
+
 .bot {
-    background-color: wheat;
-    color: #212529;
-    align-self: flex-start;
-    display: flex;
-    justify-content: flex-end;
-    width: 85%;
-  }
-  
-/*# sourceMappingURL=main.css.map */
+  background-color: #FADBD8;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.user {
+  background-color: #D6EAF8;
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: end;
+  margin-left: 50px;
+  margin-top:10px;
+  min-width: fit-content;
+}
+
+.chat-zone-envoi {
+  background-color: #F5DEB3;
+  border-radius: 0 0 30px 30px;
+  width: 76%;
+  height: 70px;
+  padding: 0 15px;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  align-self: center;
+  position: absolute;
+  top: 85%; left: 50%; /* à 50%/50% du parent référent */
+  transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
+}
+
+form{
+  display:flex;
+  flex-direction: row;
+  width:100%;
+}
+
+#saisiequestion{
+  border: none;
+  background-color:#F5DEB3;
+  width:100%;
+}
+
+#btnsubmit {
+  border-radius: 50%;
+  border: none;
+  background-color: white;
+  color:#212529;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center; 
+}
+
+#btnsubmit:hover{
+  background: linear-gradient(45deg, rgb(223, 140, 226) 0%, rgb(235, 184, 81) 100%);
+}
+
+
