@@ -27,5 +27,4 @@ urlpatterns = [
     path('chatbot/', views.chatbot, name='chatbot'), #définie la fonction chemin qui appelle le chatbot
     path('login/', views.login, name='login'),  
 
-
 ]
