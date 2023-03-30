@@ -8,6 +8,8 @@ from django.views.decorators.csrf import csrf_exempt
 from nltk.tokenize import word_tokenize
 from nltk.stem.snowball import FrenchStemmer
 import unicodedata
+import json
+import ast
 
 
 #le template appelle la structure du site (meme nav,footer,css)
@@ -45,15 +47,23 @@ def login(request): #ici on appelle l'accueil : création de la vue
 @csrf_exempt #sert a proteger le code (code de securité)
 
 def chatbot(request):
-    #il recupere les questions et reponses 
-    # datas est une variable que l'on definie nous meme (on aurait pu appeller données)
-    datas['questions'] ="" 
-    datas['reponses']= ""
     
+    #il recupere les questions et reponses 
+    datas['history']= []
+    # datas est une variable que l'on definit nous meme (on aurait pu appeller données)
+
     #"POST" recupere le message qu'entre l'utilisateur c'est une fonction
     if request.method == 'POST':
         message = request.POST['message']
+        # on récupére l'historique des messages si il y en a un dans la page
+        texthistory = request.POST['history']
+       
+        if (texthistory):
+            json_dat = json.dumps(ast.literal_eval(texthistory))
+            datas['history'] = json.loads(json_dat)
+       
         pairs =[]
+    
         #question_reponse il recupere dans la base des données
         for question_reponse in chatbotData.objects.all():
             question = question_reponse.questions
@@ -62,17 +72,31 @@ def chatbot(request):
             pair = [r"{}".format(question), reponse.split("|")]
             pairs.append(pair)
         
+
+     
         chat= Chat(pairs, reflections)
         message_sansaccent = unicodedata.normalize('NFKD', message).encode('ASCII', 'ignore').decode('utf-8')
-        result = chat.respond(message_sansaccent)
+        reponse = chat.respond(message_sansaccent)
 
         
-        #"result" et "message" est a definir dans ton index
-        datas['result'] = result
-        datas['message']= message
+        # ça génère les réponses et on conserve les échange dans l'historique
+        msgUser = {"type" : "user", "content": message}      
+        datas['history'].append(msgUser)
         
+        
+        if (reponse):
+            msgBot = {"type" : "bot", "content": reponse}
+        else:
+            msgBot = {"type" : "bot", "content": "Désolé, je n'ai pas compris la question."}
+        datas['history'].append(msgBot)  
+        
+    
     datas['page']= 'chatbot'
     return HttpResponse(template.render(datas))
+            
+
+
+
 
 
 # def afficher_messages(messages):

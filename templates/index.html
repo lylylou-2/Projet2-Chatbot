@@ -63,23 +63,32 @@
                 <div class="partenaire-accueil bulle">Partage<br>l'expérience avec<br>ton partenaire</div>
             </div>
         </section>
-        
+        <br><br>
     {% endif %}
 
 
     {%if page == 'chatbot' %}
-        <section class="chatbot">
-                <h1>Bloom In Two Assistant</h1>
-                <div class="chat-bubble user">{{message}}</div>
-               <div class="chat-bubble bot">{{result}}</div>
-                <form method="POST">
-                    <div id="recherche">
-                {% csrf_token %}
-                <input id="saisiequestion" type="text" placeholder="    Ecrivez votre message ici..." name="message" value="{{message}}" class="chat-bubble"  >
-                <button id="btnsubmit" type="submit"><i class="fa-regular fa-paper-plane fa-lg"></i></button>
-                    </div>
-                </form>
-                <div id="reponses"  class="chat-bubble bot" ></div> 
+    <section class="chatbot">
+        <h1>Bloom In Two Assistant</h1>
+
+        <div id="reponses"  class="chat-container" >
+            {% for msg in history %}
+                {% if msg.type == "user" %}
+                    <div class="chat-bubble user">{{ msg.content }}</div>
+                {% else %}
+                    <div class="chat-bubble bot">{{ msg.content }}</div>
+                {% endif %}
+            {% endfor %}
+        </div> 
+
+            <form method="POST">
+                <div id="recherche">
+                {% csrf_token %}
+                <input type="hidden" size=80 name="history" value="{{history}}">
+                <input id="saisiequestion" type="text" placeholder="Ecrivez votre message ici..." name="message" value="" class="chat-bubble"  >
+                <button id="btnsubmit" type="submit"><i class="fa-regular fa-paper-plane fa-lg"></i></button>
+                </div>
+            </form>
         </section>
         {% endif%}
 
@@ -526,7 +535,7 @@ de bouger deux par deux en  version mobile-->
     {% endif %}
 
         
-
+<br><br>
         <footer class="desktop-footer">
             <div class="rgpd">
                 <ul class="footerList">
