@@ -53,7 +53,11 @@ footer {
   bottom: 0; left: 0; right: 0;
   width:100%;
   height:auto;
+  text-decoration: none;
+  color: black;
 }
+
+
 
 
 
@@ -329,6 +333,7 @@ background sera trop clair et on ne verra plus très bien les icones*/
 /* Le code pour mettre en page la page partenaire - Le code pour mettre en page la page partenaire */
 .section-partenaire {
   display: flex;
+  flex-direction: column;
 }
 
 .section-partenaire header {
@@ -675,6 +680,8 @@ background sera trop clair et on ne verra plus très bien les icones*/
 }
 .section-partenaire {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .section-partenaire button {

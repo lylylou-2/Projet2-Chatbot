@@ -21,11 +21,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='accueil'),#définie la fonction chemin qui appelle l'accueil par defaut lors de la connexion elle s'affiche
     path('home/', views.home, name='accueil'), #définie la fonction chemin qui appelle l'accueil
-    path('partenaire/', views.home, name='partenaire'),#définie la fonction chemin qui appelle l'accueil
-    path('suivi/', views.projet, name='suivi'), #définie la fonction chemin qui appelle l'accueil
+    path('partenaire/', views.partenaire, name='partenaire'),#définie la fonction chemin qui appelle l'accueil
+    path('suivi/', views.suivi, name='suivi'), #définie la fonction chemin qui appelle l'accueil
     path('projet/', views.projet, name='projet'),
     path('chatbot/', views.chatbot, name='chatbot'), #définie la fonction chemin qui appelle le chatbot
-    path('login/', views.projet, name='login'),  
+    path('login/', views.login, name='login'),  
 
 
 ]
