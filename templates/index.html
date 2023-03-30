@@ -67,23 +67,58 @@
     {% endif %}
 
 
-    {%if page == 'chatbot' %}
-        <section class="chatbot">
-                <h1>Bloom In Two Assistant</h1>
-                <div class="chat-bubble user">{{message}}</div>
-               <div class="chat-bubble bot">{{result}}</div>
-                <form method="POST">
-                    <div id="recherche">
-                {% csrf_token %}
-                <input id="saisiequestion" type="text" placeholder="    Ecrivez votre message ici..." name="message" value="{{message}}" class="chat-bubble"  >
-                <button id="btnsubmit" type="submit"><i class="fa-regular fa-paper-plane fa-lg"></i></button>
-                    </div>
-                </form>
-                <div id="reponses"  class="chat-bubble bot" ></div> 
-        </section>
-        {% endif%}
+{%if page == 'chatbot' %}
+    <section class="chatbot">
+        <h1>Bloom In Two Assistant</h1>
 
-        
+    <div class="chat-cadre">
+
+        <div class="chat-scroll">
+            <div class="chat-base">
+                <img class="chat-logo" src="{% static 'Future-Moms-main/image/chatbot_ok.png'%}" alt="bloom content">
+                <div class="chat-zonebot">
+                        <div class="chat-bloom">BLOOM</div>
+                    <div class="zone-base">
+                        <div class="chat-text">Bonjour, je suis le chatbot Bloom. Que puis-je faire pour vous aider ?</div>
+                        <div class="chat-soustext">Je garde une trace de cette conversation pour m'améliorer. Merci de ne pas communiquer d'informations sensibles.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="reponses"  class="chat-container" >
+                {% for msg in history %}
+                    {% if msg.type == "user" %}
+                        <div class="chat-bubble user"><div class="chat-text">{{ msg.content }}</div></div>
+                    {% else %}
+                    <div class="chat-base">
+                        {% if msg.content == "Je suis désolé, je n'ai pas compris la question. Vous pouvez reformuler la question si vous voulez :-(" %}
+                        <img class="chat-logo" src="{% static 'Future-Moms-main/image/chatbot_pasok.png'%}" alt="bloom content">
+                        {% else %}
+                        <img class="chat-logo" src="{% static 'Future-Moms-main/image/chatbot_ok.png'%}" alt="bloom content">
+                        {% endif %}
+                        <div class="chat-zonebot">
+                            <div class="chat-bloom">BLOOM</div>
+                            <div class="chat-bubble bot"><div class="chat-text">{{ msg.content }}</div></div>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+            <div class="chat-zone-envoi">
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" size=80 name="history" value="{{history}}">
+                    <input id="saisiequestion" type="text" placeholder="Ecrivez votre message ici..." name="message" value=""  >
+                    <button id="btnsubmit" type="submit"><i class="fa-regular fa-paper-plane fa-lg"></i></button>
+                </form>
+            </div> 
+    </section>
+{% endif%}
+
+
          {%if page == 'suivi' %}
          <section class="suivi-section">
          
