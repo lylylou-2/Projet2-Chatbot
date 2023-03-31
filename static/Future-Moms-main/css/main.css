@@ -765,7 +765,7 @@ button{
 
 /* CODE POUR LE CHATBOT CODE POUR LE CHATBOT */
 .chatbot {
-  height:100vh;
+  height:100vh; /*VH : pour que la div prenne 100 de hauteur selon tous les écrans*/
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -907,6 +907,11 @@ button{
   background-color:#F5DEB3;
   width:100%;
   padding:0 15px;
+}
+
+input:focus {  /*pour que le cadre de l'input ne s'affiche pas lors de la saisie*/
+  border:none;
+  outline:none;
 }
 
 #btnsubmit {
