@@ -80,7 +80,7 @@ def chatbot(request):
         if (reponse):
             msgBot = {"type" : "bot", "content": reponse}
         else:
-            msgBot = {"type" : "bot", "content": "Je suis désolé, je n'ai pas compris la question. Vous pouvez reformuler la question si vous voulez :-("}
+            msgBot = {"type" : "bot", "content": "Je suis désolé, je n'ai pas compris la question. Vous pouvez reformuler la question si vous voulez ou contacter l'équipe :-("}
         datas['history'].append(msgBot)
     datas['page']= 'chatbot'
     return HttpResponse(template.render(datas))
