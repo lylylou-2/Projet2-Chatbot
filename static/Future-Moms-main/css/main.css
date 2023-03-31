@@ -613,8 +613,6 @@ footer {
   height: 70px;
   padding-right: 30px;
   padding-left: 30px;
-  position:absolute;
-  bottom:0; right:0;left:0;
 }
 
 footer ul {
@@ -766,6 +764,14 @@ button{
 
 
 /* CODE POUR LE CHATBOT CODE POUR LE CHATBOT */
+.chatbot {
+  height:100vh;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .chat-cadre {
   background-color: white;
   border-radius: 30px 30px 0 0;
@@ -776,9 +782,6 @@ button{
   flex-direction: column;
   justify-content: space-between;
   gap:8px;
-  position: absolute;
-  top: 51%; left: 50%; /* à 50%/50% du parent référent */
-  transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
   overflow-y: auto;
 }
 
@@ -865,9 +868,6 @@ button{
   align-items: center;
   justify-content: space-around;
   align-self: center;
-  position: absolute;
-  top: 85%; left: 50%; /* à 50%/50% du parent référent */
-  transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
 }
 
 form{
