@@ -71,6 +71,7 @@
     <section class="chatbot">
         <h1>Bloom In Two Assistant</h1>
 
+    <div class="chatbot-total">
     <div class="chat-cadre">
 
         <div class="chat-scroll">
@@ -91,7 +92,7 @@
                         <div class="chat-bubble user"><div class="chat-text">{{ msg.content }}</div></div>
                     {% else %}
                     <div class="chat-base">
-                        {% if msg.content == "Je suis désolé, je n'ai pas compris la question. Vous pouvez reformuler la question si vous voulez :-(" %}
+                        {% if msg.content == "Je suis désolé, je n'ai pas compris la question. Vous pouvez reformuler la question si vous voulez ou contacter l'équipe :-(" %}
                         <img class="chat-logo" src="{% static 'Future-Moms-main/image/chatbot_pasok.png'%}" alt="bloom content">
                         {% else %}
                         <img class="chat-logo" src="{% static 'Future-Moms-main/image/chatbot_ok.png'%}" alt="bloom content">
@@ -107,14 +108,25 @@
         </div>
     </div>
 
-            <div class="chat-zone-envoi">
-                <form method="POST">
-                    {% csrf_token %}
-                    <input type="hidden" size=80 name="history" value="{{history}}">
-                    <input id="saisiequestion" type="text" placeholder="Ecrivez votre message ici..." name="message" value=""  >
-                    <button id="btnsubmit" type="submit"><i class="fa-regular fa-paper-plane fa-lg"></i></button>
+            <div class="chat-formulaire">
+                <form id="chat-form" method="POST">
+                    <div class="chat-zone-bouton">
+                        <button class="btn-info" type="button" onclick="document.getElementById('saisiequestion').value='Presentation-Bloom-In-Two';document.getElementById('chat-form').submit();">Bloom in Two</button>
+                        <button class="btn-info" type="button" onclick="document.getElementById('saisiequestion').value='Presentation-Toi-Moi';document.getElementById('chat-form').submit();">Toi + Moi</button>
+                        <button class="btn-info" type="button" onclick="document.getElementById('saisiequestion').value='Presentation-Suivi-personnalise';document.getElementById('chat-form').submit();">Suivi personnalisé</button>
+                        <button class="btn-info" type="button" onclick="document.getElementById('saisiequestion').value='Presentation-Projet';document.getElementById('chat-form').submit();">Projet de naissance</button>
+                        <button class="btn-info" type="button" onclick="document.getElementById('saisiequestion').value='Contact-Bloom';document.getElementById('chat-form').submit();">Contact</button>
+                    </div>
+                    <div class="chat-zone-envoi">
+                        {% csrf_token %}
+                        <input type="hidden" size=80 name="history" value="{{history}}">                   
+                        <input id="saisiequestion" type="text" placeholder="Ecrivez votre message ici..." name="message" value=""  >
+                        <button id="btnsubmit" type="submit"><i class="fa-regular fa-paper-plane fa-lg"></i></button>
+                    </div>
                 </form>
             </div> 
+            
+        </div>
     </section>
 {% endif%}
 

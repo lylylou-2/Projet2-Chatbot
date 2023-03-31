@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,300&display=swap");
 
 * {
-  padding: 1px;
+  padding: 0;
   margin: 0;
 }
 
@@ -769,20 +769,24 @@ button{
   display:flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+}
+
+.chatbot-total {
+  height:57%;
+  width:75%;
+  gap:8px;
 }
 
 .chat-cadre {
   background-color: white;
   border-radius: 30px 30px 0 0;
-  padding:10px 20px;
-  height:57%;
-  width:75%;
+  width: auto;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap:8px;
   overflow-y: auto;
+  padding:10px 20px;
 }
 
 .chat-base {
@@ -791,9 +795,6 @@ button{
   align-items: center;
 }
 
-/* .chat-scroll {
-  height:auto;
-}  */
 
 .zone-base{
   display:flex;
@@ -806,10 +807,6 @@ button{
   color: #212529;
   margin-right: 50px;
 }
-
-/* .chat-container {
-  height:100%;
-} */
 
 .chat-text {
   font-size: 1rem;
@@ -858,28 +855,58 @@ button{
   min-width: fit-content;
 }
 
+.chat-form{
+  display:flex;
+  flex-direction: column;
+  width:auto;
+}
+
+.chat-zone-bouton {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  gap:10px;
+  padding:5px 0;
+}
+
+.btn-info {
+  border-radius: 30px;
+  background-color: #F8C471;
+  width:auto;
+  height:15px;
+  border:none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.btn-info:hover{
+  background: linear-gradient(45deg, rgb(223, 140, 226) 0%, rgb(235, 184, 81) 100%);
+  cursor: pointer;
+}
+
+
 .chat-zone-envoi {
   background-color: #F5DEB3;
   border-radius: 0 0 30px 30px;
-  width: 76%;
+  width: auto;
   height: 70px;
-  padding: 0 15px;
   display:flex;
   align-items: center;
   justify-content: space-around;
   align-self: center;
 }
 
-form{
-  display:flex;
-  flex-direction: row;
-  width:100%;
-}
-
 #saisiequestion{
   border: none;
   background-color:#F5DEB3;
   width:100%;
+  padding:0 15px;
 }
 
 #btnsubmit {
@@ -892,6 +919,7 @@ form{
   height: 30px;
   display: flex;
   justify-content: center; 
+  margin-right: 5px;
 }
 
 #btnsubmit:hover{
