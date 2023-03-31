@@ -899,3 +899,56 @@ form{
 }
 
 
+
+
+/*Css de la page contact */
+
+.bloc-contact {
+margin:auto;
+align-items: center;
+display:flex;
+flex-direction: column;
+
+};
+
+
+.titre-contact{
+  text-align: center;
+  font-family: "Mansalva";
+  margin: 30px;
+  gap: 20px;
+  
+}
+
+.nom-contact,.prenom-contact ,.email-contact {
+  height: 50px;
+  width: 600px;
+  background-color: #fff;
+  
+}
+
+.message-contact {
+  height: 200px;
+  background-color: #fff;
+  width: 600px;
+}
+
+.prendre-contact {
+  gap:30px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 70px;
+}
+
+.titre-coordonnees {
+  font-size: 30px;
+}
+
+.global-contact {
+display: flex;
+gap: 50px;
+}
+
+.texte-telephone {
+  font-size: 30px;
+}
