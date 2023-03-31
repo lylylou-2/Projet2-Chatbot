@@ -44,6 +44,11 @@ def login(request): #ici on appelle l'accueil : création de la vue
     datas['page']= 'login'
     return HttpResponse(template.render(datas))
 
+def contact(request): #ici on appelle la page contact : création de la vue
+    datas['page']= 'contact'
+    return HttpResponse(template.render(datas))
+
+
 @csrf_exempt #sert a proteger le code (code de securité)
 
 

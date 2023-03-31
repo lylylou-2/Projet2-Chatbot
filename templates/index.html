@@ -538,10 +538,45 @@ de bouger deux par deux en  version mobile-->
                 </section>
                 {% endif %}
 
+
+    {%if page == 'contact' %}
+                <section class="section-contact">
+                   
+                    <h1 class="titre-contact"> Contact </h1>
+                    <div class="bloc-contact">
+                        <div class="texte-contact">
+                            <p> Besoin d'en savoir plus sur Bloom in two? Nos conseillers sont disponibles pour vous répondre !</p>
+                            <p>Prendre contact </p>
+                        </div>
+                    <div class="global-contact">
+                        <div class="prendre-contact">
+                                <div class="nom-contact">Nom</div>
+                                <div class="prenom-contact">Prénom</div>
+                                <div class="email-contact">Email</div>
+                                <div class="message-contact">Message </div>
+                            </div>
+                            <div class = "bloom-contact">
+                                <div class="telephone-contact"> 
+                                    <p class="texte-telephone">Télephone</p>
+                                    <div>0136259812</div>
+                                </div>
+                                <div class="coordonnées-contact">
+                                    <p class="titre-coordonnees"> Bloom in two</h1>
+                                    <p class="adresse-contact"> 15 rue Henri Chevreau 75020 Paris  </p>
+                                </div>
+                            </div>
+                        </div>
+
+                </section>
+        {% endif %}
+
+
+
+
         <footer class="desktop-footer">
             <div class="rgpd">
                 <ul class="footerList">
-                    <li><a href="https://www.example.com">Contact</a></li>
+                    <li><a href="/contact" title="Prendre contact">Contact</a></li>
                     <li><a href="https://www.example.com">FAQ</a></li>
                     <li><a href="https://www.example.com">Mentions légales</a></li>
                     <li><a href="https://www.example.com">Politique de confidentialité</a></li>
@@ -560,3 +595,5 @@ de bouger deux par deux en  version mobile-->
    </body>
 
 </html>
+
+
