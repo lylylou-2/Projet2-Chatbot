@@ -24,12 +24,13 @@ Vous trouverez les images sur canva
 
 N'hésitez pas à utiliser le flux de travail qui vous convient. Vous trouverez ci-dessous une suggestion de processus, mais ne vous sentez pas obligé de suivre ces étapes :
 
-1. Installez les outils nécessaires comme python et la bibliothèque NLTK à l'aide de pip intall. 
-2. Créer une base de données sur le serveur et définir la structure de la table pour stocker les données du chatbot, comme les questions des utilisateurs et les réponses du chatbot.
-3. Ecrire les codes python nécessaires au bon fonctionnement du chatbot
-4. ???
-5. Initialisez votre projet en tant que dépôt public sur [GitHub](https://github.com/). La création d'un dépôt facilitera le partage de votre code avec la communauté si vous avez besoin d'aide. Si vous n'êtes pas sûr de savoir comment procéder, [lisez attentivement cette ressource Essayer Git](https://try.github.io/). 
-6. Configurez votre dépôt pour publier votre code à une adresse web. Cela sera également utile si vous avez besoin d'aide pendant un exercice, car vous pouvez partager l'URL de votre projet avec l'URL de votre dépôt. Il y a plusieurs façons de le faire, et nous fournissons quelques recommandations ci-dessous.
+1. Installez les outils nécessaires comme python et la bibliothèque NLTK à l'aide de pip intall
+2. Taper la commande "django-admin startproject <nom_du_projet>" pour créer une nouvelle application Django 
+3. Créer une base de données sur l'interface d'administration et définir la structure de la table pour stocker les données du chatbot, comme les questions des utilisateurs et les réponses du chatbot.
+4. Ecrire les codes python nécessaires au bon fonctionnement du chatbot
+5. Styliser votre page html du chatbot
+6. Initialisez votre projet en tant que dépôt public sur [GitHub](https://github.com/). La création d'un dépôt facilitera le partage de votre code avec la communauté si vous avez besoin d'aide. Si vous n'êtes pas sûr de savoir comment procéder, [lisez attentivement cette ressource Essayer Git](https://try.github.io/). 
+7. Configurez votre dépôt pour publier votre code à une adresse web. Cela sera également utile si vous avez besoin d'aide pendant un exercice, car vous pouvez partager l'URL de votre projet avec l'URL de votre dépôt. Il y a plusieurs façons de le faire, et nous fournissons quelques recommandations ci-dessous.
 
 ## Déployer votre projet
 
@@ -37,13 +38,6 @@ Comme mentionné ci-dessus, il existe de nombreuses façons d'héberger votre pr
 
 - [Pages GitHub](https://pages.github.com/)
 
-## Créer un `README.md` personnalisé
-
-Nous recommandons fortement de remplacer ce `README.md` par un modèle personnalisé. Nous avons fourni un modèle dans le fichier [`README-template.md`](./README-template.md) dans ce code de démarrage.
-
-Le modèle fournit un guide sur ce qu'il faut ajouter. Un `README` personnalisé vous aidera à expliquer votre projet et à faire le point sur vos apprentissages. N'hésitez pas à modifier notre modèle autant que vous le souhaitez.
-
-Une fois que vous avez ajouté vos informations au modèle, supprimez ce fichier et renommez le fichier `README-template.md` en `README.md`. Cela le fera apparaître comme le fichier README de votre dépôt.
 
 ## Soumettre votre code
 
