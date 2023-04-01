@@ -3,9 +3,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,300&display=swap");
 
 * {
-  padding: 1px;
+  padding: 0;
   margin: 0;
 }
+
+
 
 
 /* NAV */
@@ -80,6 +82,7 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  padding-top:1px;
 }
 
 .text-accueil {
@@ -644,7 +647,7 @@ footer ul {
   /*Enlever le soulignement du lien hypertexte et enlever la couleur bleu du lien*/
   .desktop a {
     text-decoration: none;
-    color: black;
+    color: inherit;
   }
   .en-tete {
     display: none;
