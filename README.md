@@ -31,7 +31,7 @@ N'hésitez pas à utiliser le flux de travail qui vous convient. Vous trouverez 
 6. Il faudra faire en sorte que toutes les images de votre site s'affiche avant de commmencer le projet : utiliser les tags Django pour rendre les pages dynamiques si nécessaire.
 7. Vous pouvez taper à tout moment la commande: python manage.py runserver pour voir si les pages sont bien dynamiques et observer votre avancée sur le chatbot.
 8. Créer une base de données sur l'interface d'administration et définir la structure de la table (en créant sa class sur models.py) pour stocker les données du chatbot, comme les questions des utilisateurs et les réponses du chatbot.
-9. 1. Installez les outils nécessaires et la bibliothèque NLTK à l'aide de pip intall. 
+9. Installez les outils nécessaires et la bibliothèque NLTK à l'aide de pip intall. 
 10. Ecrire les codes python nécessaires au bon fonctionnement du chatbot dans la page views. Attention, il faudrait que le chatbot affiche toutes les questions et réponses de la conversation (historique) et qu'à l'aide des imports NLTK, le travail de lemmatisation et tokénisation permette de comprendre au mieux les questions.
 11. Styliser votre page html du chatbot.
 12. Rassembler toutes vos pages html sur une même page (index.html) et votre css (main.css) sur une même page: pour chaque page vous utiliserez cette fonction pour la débuter  {%if page == 'nom de la page' %}, affichage de la partie section de la page, puis terminer avec cette fonction :  {% endif %}. 
