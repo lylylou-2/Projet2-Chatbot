@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'Future-Moms-main/css/main.css'%}">
+        <link rel="icon" type="image/jpg" href="{% static 'Future-Moms-main/image/bloom.jpg'%}">
+        <script src="//kit.fontawesome.com/87cee28510.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        {% load static %}
+       <!--Le fa-3x permet d'aggrandir l'icone, 
+        j'aurais aussi pu mettre 2x si je veux que ce soit moins grand-->
+        <nav class="mobile">
+            <div class="icone-mobile">
+                <div class="icone-nav"><a href="/partenaire"><i class="fa-solid fa-children fa-2x"></i></a></div>
+                <div class="icone-nav"><a href="/suivi"><i class="fa-solid fa-calendar-days fa-2x"></i></a> </div>
+
+                <div class="icone-nav"><a href="/projet"><i class="fa-solid fa-list-check fa-2x"></i></a> </div>
+                <div class="icone-nav"><a href="https://www.example.com"><i class="fa-solid fa-ellipsis-vertical fa-2x"></i></a></div>
+             
+        </nav>
+
+
+        <!-- nav: connexion = logo-->
+         <nav class="desktop">
+            <ul> 
+                <li><a href="/" title="Aller sur le blog">Accueil</a></li>
+                <li><a href="/partenaire" title="Vivre la grossesse ensemble">TOI+MOI</a></li>
+                <li><a href="/suivi" title="Calendrier de suivi">Suivi personnalisé</a></li>
+                <li><a href="/projet" title="Construire votre projet">Projet de naissance</a></li>
+                <li><a href="/newsletter" title="Lire la newsletter">Newsletter</a></li>
+                <li><a href="/chatbot" title="Poser des questions">ChatBot</a></li>
+                <li class="connexion"><a href="/login"><i class="fa-solid fa-user-group fa-2x"></i></a></li>
+            </ul>  
+        </nav>
+
+<!--en tete version mobile-->
+  <div class="en-tete">
+    <p class="en-tete-texte"><a href="/home">Bloom in Two</a></p>       
+    <a href="/login"><i class="fa-solid fa-user-group fa-2x"></i></a>
+  </div>
+
+  {% if page == 'home'%}
+        <section class="accueil">
+            <div class="image-accueil">
+                <div class="text-accueil">
+                    <h1 class="accueil">Bloom<br>in<br>two</h1>
+                    <p class="propvaleur">Une aventure unique partagée</p>
+                    <div class="button-accueil">
+                    <!--button><a href="#">Un simple lien</a></button-->
+
+                        <button class="decouvre"><a href="www.example.com">Je découvre</a></button>
+                        <button class="telecharge"><a href="/login">Je télécharge</a></button>
+                    </div>
+                </div>
+            </div>
+            <div class="info-accueil">
+                <div class="suivi-accueil bulle">Complète<br>ton suivi<br>personnalisé</div>
+                <div class="projet-accueil bulle">Créer ton<br>projet de naissance<br>pas à pas</div>
+                <div class="partenaire-accueil bulle">Partage<br>l'expérience avec<br>ton partenaire</div>
+            </div>
+        </section>
+        
+    {% endif %}
+
+
+{%if page == 'chatbot' %}
+    <section class="chatbot">
+        <h1>Bloom In Two Assistant</h1>
+
+    <div class="chatbot-total">
+    <div class="chat-cadre">
+
+        <div class="chat-scroll">
+            <div class="chat-base">
+                <img class="chat-logo" src="{% static 'Future-Moms-main/image/chatbot_ok.png'%}" alt="bloom content">
+                <div class="chat-zonebot">
+                        <div class="chat-bloom">BLOOM</div>
+                    <div class="zone-base">
+                        <div class="chat-text">Bonjour, je suis le chatbot Bloom. Que puis-je faire pour vous aider ?</div>
+                        <div class="chat-soustext">Je garde une trace de cette conversation pour m'améliorer. Merci de ne pas communiquer d'informations sensibles.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="reponses"  class="chat-container" >
+                {% for msg in history %}
+                    {% if msg.type == "user" %}
+                        <div class="chat-bubble user"><div class="chat-text">{{ msg.content }}</div></div>
+                    {% else %}
+                    <div class="chat-base">
+                        {% if msg.content == "Je suis désolé, je n'ai pas compris la question. Vous pouvez reformuler la question si vous voulez ou contacter l'équipe :-(" %}
+                        <img class="chat-logo" src="{% static 'Future-Moms-main/image/chatbot_pasok.png'%}" alt="bloom content">
+                        {% else %}
+                        <img class="chat-logo" src="{% static 'Future-Moms-main/image/chatbot_ok.png'%}" alt="bloom content">
+                        {% endif %}
+                        <div class="chat-zonebot">
+                            <div class="chat-bloom">BLOOM</div>
+                            <div class="chat-bubble bot"><div class="chat-text">{{ msg.content }}</div></div>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+            <div class="chat-formulaire">
+                <form id="chat-form" method="POST">
+                    <div class="chat-zone-bouton">
+                        <button class="btn-info" type="button" onclick="document.getElementById('saisiequestion').value='Presentation-Bloom-In-Two';document.getElementById('chat-form').submit();">Bloom in Two</button>
+                        <button class="btn-info" type="button" onclick="document.getElementById('saisiequestion').value='Presentation-Toi-Moi';document.getElementById('chat-form').submit();">Toi + Moi</button>
+                        <button class="btn-info" type="button" onclick="document.getElementById('saisiequestion').value='Presentation-Suivi-personnalise';document.getElementById('chat-form').submit();">Suivi personnalisé</button>
+                        <button class="btn-info" type="button" onclick="document.getElementById('saisiequestion').value='Presentation-Projet';document.getElementById('chat-form').submit();">Projet de naissance</button>
+                        <button class="btn-info" type="button" onclick="document.getElementById('saisiequestion').value='Contact-Bloom';document.getElementById('chat-form').submit();">Contact</button>
+                    </div>
+                    <div class="chat-zone-envoi">
+                        {% csrf_token %}
+                        <input type="hidden" size=80 name="history" value="{{history}}">                   
+                        <input id="saisiequestion" type="text" placeholder="Ecrivez votre message ici..." name="message" value=""  >
+                        <button id="btnsubmit" type="submit"><i class="fa-regular fa-paper-plane fa-lg"></i></button>
+                    </div>
+                </form>
+            </div> 
+            
+        </div>
+    </section>
+{% endif%}
+
+
+         {%if page == 'suivi' %}
+         <section class="suivi-section">
+         
+             <div class="suivi-titre"> Suivi personnalisé</div> 
+     
+             <div class="suivi-calendrier">
+                 <div class="calendrier">
+                     <h3 class="h3">Janvier</h3>
+                 <table class="janv">
+                     <tbody class="tbody">
+                         <tr class="tr">
+                         <td>1</td>
+                         <td>2</td>
+                         <td>3</td>
+                         <td>4</td>
+                         <td>5</td>
+                         <td>6</td>
+                         <td>7</td>
+                         </tr>
+                         <tr>
+                         <td>8</td>
+                         <td>9</td>
+                         <td class="event1">10</td>
+                         <td>11</td>
+                         <td>12</td>
+                         <td>13</td>
+                         <td>14</td>
+                         </tr>
+                         <tr>
+                         <td>15</td>
+                         <td>16</td>
+                         <td>17</td>
+                         <td>18</td>
+                         <td>19</td>
+                         <td class="event2">20</td>
+                         <td >21</td>
+                         </tr>
+                         <tr>
+                         <td>22</td>
+                         <td>23</td>
+                         <td>24</td>
+                         <td>25</td>
+                         <td>26</td>
+                         <td>27</td>
+                         <td>28</td>
+                         </tr>
+                         <tr>
+                         <td>29</td>
+                         <td class="event3">30</td>
+                         <td>31</td>
+                         </tr>
+                     </tbody>
+                 </table>
+                 </div> <!-- Janvier -->
+                 <div class="calendrier">
+                     <h3 class="h3">Fevrier</h3>
+                 <table class="fev">
+                     <tbody>
+                         <tr>
+                         <td>1</td>
+                         <td>2</td>
+                         <td>3</td>
+                         <td>4</td>
+                         <td>5</td>
+                         <td>6</td>
+                         <td>7</td>
+                         </tr>
+                         <tr>
+                         <td>8</td>
+                         <td>9</td>
+                         <td class="event1">10</td>
+                         <td>11</td>
+                         <td>12</td>
+                         <td>13</td>
+                         <td>14</td>
+                         </tr>
+                         <tr>
+                         <td>15</td>
+                         <td>16</td>
+                         <td>17</td>
+                         <td>18</td>
+                         <td>19</td>
+                         <td class="event2">20</td>
+                         <td >21</td>
+                         </tr>
+                         <tr>
+                         <td>22</td>
+                         <td>23</td>
+                         <td>24</td>
+                         <td>25</td>
+                         <td>26</td>
+                         <td>27</td>
+                         <td>28</td>
+                         </tr>
+                         
+                     </tbody>
+                 </table>
+                 </div> <!-- Février -->
+                 <div class="calendrier">
+                     <h3 class="h3">Mars</h3>
+                 <table class="mars">
+                     <tbody>
+                         <tr>
+                         <td>1</td>
+                         <td>2</td>
+                         <td>3</td>
+                         <td>4</td>
+                         <td>5</td>
+                         <td>6</td>
+                         <td>7</td>
+                         </tr>
+                         <tr>
+                         <td>8</td>
+                         <td>9</td>
+                         <td class="event3">10</td>
+                         <td>11</td>
+                         <td>12</td>
+                         <td>13</td>
+                         <td>14</td>
+                         </tr>
+                         <tr>
+                         <td>15</td>
+                         <td>16</td>
+                         <td>17</td>
+                         <td>18</td>
+                         <td>19</td>
+                         <td class="event1">20</td>
+                         <td>21</td>
+                         </tr>
+                         <tr>
+                         <td>22</td>
+                         <td>23</td>
+                         <td>24</td>
+                         <td>25</td>
+                         <td>26</td>
+                         <td>27</td>
+                         <td>28</td>
+                         </tr>
+                         <tr>
+                         <td>29</td>
+                         <td class="event2">30</td>
+                         <td>31</td>
+                         </tr>
+                     </tbody>
+                 </table>
+                 </div> <!--Mars -->
+             </div>
+             
+             <div class="suivi-note"> 
+                 <div class="suivi-icon1"></div>
+                 <p class="suivi-p">date d'echo</p>
+     
+                 <div class="suivi-icon2"></div>
+                 <p class="suivi-p">consulation </p>
+            
+                 <div class="suivi-icon3"></div>
+                 <p class="suivi-p"> suivi de poids</p>
+             
+             </div>
+         
+     
+     
+         </section>
+         {% endif %}
+     
+     
+         {%if page == 'partenaire' %}
+         <section class="section-partenaire"> 
+             <button><i class="fa-solid fa-magnifying-glass"></i>Rechercher un article...</button>
+                 
+     
+             <h1>TOI+MOI</h1>
+             <h2>SOUVENIRS</h2>
+         <div class="photo-partenaire">
+     
+         <div class="souvenir-partenaire">
+             
+             <div class="journal-de-bord">
+                 <p><a href="https://www.example.com">Journal De Bord</a></p>
+                 <img src="{% static '/Future-Moms-main/image/journal-de-bord.jpg'%}" alt="journal">
+             </div>
+             <div class="photo-video">
+                 <p><a href="https://www.example.com">Photos-Vidéos</a></p>
+                 <img src="{% static 'Future-Moms-main/image/photo-video.jpg'%}" alt="parents">
+             </div>
+         </div>
+         <h3>ARTICLES</h3>
+     <div class="article-partenaire">
+         <div class="couple-partenaire">
+             <div class="article-couple1">
+                 <p><a href="https://www.example.com">Grossesse</a></p>
+                 <img src="{% static 'Future-Moms-main/image/image AC1.jpg'%}" alt="1">
+             </div>
+             <div class="article-couple2">
+                 <p><a href="https://www.example.com">Prénoms</a></p>
+                 <img src="{% static 'Future-Moms-main/image/image AC2.jpg'%}" alt="2">
+             </div>
+             <div class="article-couple3">
+                 <p><a href="https://www.example.com">Actu parent</a></p>
+                 <img src="{% static 'Future-Moms-main/image/image AC3.jpg'%}" alt="3">
+             </div>
+         </div>
+     
+         <div class="bebe-partenaire">
+             <div class="article-bebe1">
+                 <p><a href="https://www.example.com">Laits pour bébé</a></p>
+                 <img src="{% static 'Future-Moms-main/image/laitbébé.jpg'%}"alt="1">
+             </div>
+             <div class="article-bebe2">
+                 <p><a href="https://www.example.com">Allaitement</a></p>
+                 <img src="{% static 'Future-Moms-main/image/image AB2.jpg'%}" alt="2">
+             </div>
+             <div class="article-bebe3">
+                 <p><a href="https://www.example.com">Voyager</a></p>
+                 <img src="{% static 'Future-Moms-main/image/image AB3.jpg'%}" alt="3">
+             </div>
+         </div>
+     </div>
+             </section>
+             {% endif %}
+     
+         {%if page == 'login' %}
+         <section class="section-login">
+             <h1>CREER UN COMPTE</h1>
+             <div class="login-section">
+             <div class="login-nom">
+                 <p>NOM</p>
+             </div>
+             <div class="login-prenom">
+                 <p>PRENOM</p>
+             </div>
+             <div class="login-email">
+                 <p>EMAIL</p>
+             </div>
+             <div class="login-date">
+                 <p>DATE DE CONCEPTION</p>
+             </div>
+             <div class="login-lien-partenaire">
+                 <p>LIER NUMERO DU PARTENAIRE</p>
+             </div>
+             </div>
+             <button class="login-button"><a href="/partenaire">S'inscrire</a></button>
+             <div class="consentement">
+                 <input type="checkbox" id="check">
+                 <label for="check">Je consens au traitement de mes données personnelles et j'ai lu les conditions d'utilisation</label>
+             </div>
+             
+                     </section>
+         {% endif %}
+     
+     
+         {%if page == 'formulaire' %}
+         <section class="section-formulaire">
+             <div class="formulaire-projet">
+                 <form method="get" action="">
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. ?: <br>
+                 <input type="checkbox" name="choix" id="lorem"><label for="choix">Choix 1</label> <br>
+                 <input type="checkbox" name="ballon" id="ballon"><label for="ballon">Lorem</label> <br>
+                 <input type="checkbox" name="choix" id="lorem"><label for="choix">Choix 1</label> <br>
+                 <input type="checkbox" name="ballon" id="ballon"><label for="ballon">Lorem</label> <br>
+         
+                     <br>
+         
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. ?: <br>
+                     <input type="checkbox" name="choix" id="lorem"><label for="choix">Choix 1</label> <br>
+                     <input type="checkbox" name="ballon" id="ballon"><label for="ballon">Lorem</label> <br>
+                     <input type="checkbox" name="choix" id="lorem"><label for="choix">Choix 1</label> <br>
+                     <input type="checkbox" name="ballon" id="ballon"><label for="ballon">Lorem</label> <br>    
+         
+                     <br>
+         
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. ?: <br>
+                     <input type="checkbox" name="choix" id="lorem"><label for="choix">Choix 1</label> <br>
+                     <input type="checkbox" name="ballon" id="ballon"><label for="ballon">Lorem</label> <br>
+                     <input type="checkbox" name="choix" id="lorem"><label for="choix">Choix 1</label> <br>
+                     <input type="checkbox" name="ballon" id="ballon"><label for="ballon">Lorem</label> <br>
+         
+             </div>
+             
+             </form>
+         </section>
+         {% endif %}
+
+         {%if page == 'projet' %}
+    <section class="section-projet">
+        <div class="bloc-projet">
+
+            <div class="titre-projet">Projet naissance</div>
+<!--Faire des container de deux éléments pour leur dire 
+de bouger deux par deux en  version mobile-->
+            <div class="icone-projet">
+
+                <div class="projet-container">
+                     <div class="element-projet">
+                    <div class="cercle-projet">
+         <!--La balise a me permet de créer un lien vers le formulaire,il faut encadrer
+            l'élément qui doit avoir le lien, j'encadre
+        image et texte car je veux le lien sur les deux-->               
+                      <a  class="formulaire" href="/formulaire">
+                        <img src="{% static 'Future-Moms-main/image/environnement.png'%}" alt="environnement">
+                    </div>
+                    <p class="texte-projet">Environnement</p>
+                </a>
+                </div>
+
+                <div class="element-projet">
+                    <div class="cercle-projet">
+                        <a class="formulaire" href="/formulaire">
+                             <img src="{% static 'Future-Moms-main/image/douleur.png'%}" alt="douleur">
+                    </div>
+                    <p class="texte-projet">Douleur</p>
+                </a>
+                       
+                </div>
+            </div>
+               
+                <div class="projet-container"> 
+                    <div class="element-projet">
+                    <div class="cercle-projet">
+                        <a class="formulaire" href="/formulaire">
+                        <a class="formulaire" href="/formulaire"> 
+                            <img src="{% static 'Future-Moms-main/image/Femme enceinte.png'%}" alt="travail">
+                    </div>
+                    <p class="texte-projet">Pendant le travail</p>
+                </a>
+                       
+                </div>
+
+                <div class="element-projet">
+                    <div class="cercle-projet">
+                        <a  class ="formulaire" href="/formulaire" >
+                        <img class="image-projet" src="{% static 'Future-Moms-main/image/materiel-naissance.png'%}" alt="materiel">
+                    </div>
+                    <p class="texte-projet">Matériel</p>
+                </a>
+                       
+                </div>
+            </div>
+               
+            <div class="projet-container"> 
+                <div class="element-projet">
+                    <div class="cercle-projet">
+                        <a class ="formulaire" href="/formulaire"> 
+                            <img src="{% static 'Future-Moms-main/image/cordon.png'%}"  alt="cordon">
+                    </div>
+                            <p class="texte-projet">Cordon ombilical</p>
+                 </a> 
+                          
+                 </div>
+                
+                <div class="element-projet">
+                    <div class="cercle-projet">
+                        <a class="formulaire" href="/formulaire">
+                            <img src="{% static 'Future-Moms-main/image/naissance.png'%}" alt="bebe">
+                    </div>
+                    <p class="texte-projet">Naissance</p>
+                </a>
+                        
+                </div>
+            </div>
+               
+
+            <div class="projet-container"> 
+                <div class="element-projet">
+                <div class="cercle-projet">
+                    <a href="/formulaire"> 
+                        <img src="{% static 'Future-Moms-main/image/allaitement.png'%}" alt="allaitement">
+                     </div>   
+                    <p class="texte-projet">Allaitement</p> 
+                </a>
+                       
+                </div>
+
+                <div class="element-projet">
+                    <div class="cercle-projet">
+                        <a  class="formulaire" href="/formulaire"> 
+                            <img src="{% static 'Future-Moms-main/image/autres.png'%}" alt="Autres">
+                     </div>
+                     <p class="texte-projet">Autres</p>
+                     </a>
+                       
+                </div>
+            </div>
+            </div>  
+                   
+         </div>
+        
+    </section>
+    {% endif %}
+
+
+    {%if page == 'contact' %}
+                <section class="section-contact">
+                   
+                    <h1 class="titre-contact"> Contact </h1>
+                    <div class="bloc-contact">
+                        <div class="texte-contact">
+                            <p> Besoin d'en savoir plus sur Bloom in two? Nos conseillers sont disponibles pour vous répondre !</p>
+                            <p>Prendre contact </p>
+                        </div>
+                    <div class="global-contact">
+                        <div class="prendre-contact">
+                                <div class="nom-contact">Nom</div>
+                                <div class="prenom-contact">Prénom</div>
+                                <div class="email-contact">Email</div>
+                                <div class="message-contact">Message </div>
+                            </div>
+                            <div class = "bloom-contact">
+                                <div class="telephone-contact"> 
+                                    <p class="texte-telephone">Télephone</p>
+                                    <div>0136259812</div>
+                                </div>
+                                <div class="coordonnées-contact">
+                                    <p class="titre-coordonnees"> Bloom in two</h1>
+                                    <p class="adresse-contact"> 15 rue Henri Chevreau 75020 Paris  </p>
+                                </div>
+                            </div>
+                        </div>
+
+                </section>
+        {% endif %}
+
+
+
+
+        <footer class="desktop-footer">
+            <div class="rgpd">
+                <ul class="footerList">
+                    <li><a href="/contact" title="Prendre contact">Contact</a></li>
+                    <li><a href="https://www.example.com">FAQ</a></li>
+                    <li><a href="https://www.example.com">Mentions légales</a></li>
+                    <li><a href="https://www.example.com">Politique de confidentialité</a></li>
+                </ul>
+            </div>
+
+        <div class="reseaux">
+            <ul>
+                <li class="reseau"><i class="fa-brands fa-instagram"></i></li>
+                <li class="reseau"><i class="fa-brands fa-twitter"></i></li>
+                <li class="reseau"><i class="fa-brands fa-facebook-f"></i></li>
+            </ul>
+        </div>
+        </footer>
+
+   </body>
+
+</html>
+
+
