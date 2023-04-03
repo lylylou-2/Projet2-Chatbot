@@ -17,8 +17,7 @@ Vos utilisateurs devraient être en mesure de :
 
 ## Où tout trouver
 
-Votre tâche consiste à élaborer le projet à partir de ce projet: https://github.com/Habibata-Doucoure/Future-Moms
-Vous trouverez les images sur canva 
+Votre tâche consiste à élaborer le projet à partir de ce projet: https://github.com/Habibata-Doucoure/Future-Moms 
 
 ## Construction de votre projet
 
