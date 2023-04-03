@@ -24,11 +24,18 @@ Vous trouverez les images sur canva
 
 N'hésitez pas à utiliser le flux de travail qui vous convient. Vous trouverez ci-dessous une suggestion de processus, mais ne vous sentez pas obligé de suivre ces étapes :
 
-1. Installez les outils nécessaires comme python et la bibliothèque NLTK à l'aide de pip intall
-2. Taper la commande "django-admin startproject <nom_du_projet>" pour créer une nouvelle application Django 
+(1. Installez les outils nécessaires (comme python) et la bibliothèque NLTK à l'aide de pip intall. )
+2.  Dans un terminal, naviguez vers le répertoire où on a déposé le template: taper la commande "django-admin startproject <nom_du_projet>" pour créer un nouveau projet django dans ce répertoire. Remplacez 'my project' par le nom de votre choix.
+3.Créez une application Django à l'aide de la commande python manage.py startapp myapp (remplacez "myapp" par le nom de votre choix pour votre application).
+3.Dans le fichier settings.py de votre projet, ajoutez le nom de votre application à la liste INSTALLED_APPS.
+3 Dans le fichier urls.py de votre projet, ajoutez une vue pour afficher votre template. 
+3.Dans le fichier views.py de votre application, créez une vue pour afficher votre template.
+3. Il faudra faire en sorte que toutes les images de votre site s'affiche avant de commmencer le projet : utiliser les tags Django pour rendre les pages dynamiques si nécessaire.
+3. Vous pouvez taper à tout moment la commande: python manage.py runserver pour voir si les pages sont bien dynamiques et observer votre avancée sur le chatbot.
 3. Créer une base de données sur l'interface d'administration et définir la structure de la table pour stocker les données du chatbot, comme les questions des utilisateurs et les réponses du chatbot.
-4. Ecrire les codes python nécessaires au bon fonctionnement du chatbot
-5. Styliser votre page html du chatbot
+4. Ecrire les codes python nécessaires au bon fonctionnement du chatbot dans la page views. Attention, il faudrait que le chatbot affiche toutes les questions et réponses de la conversation (historique) et qu'à l'aide des imports NLTK, le travail de lemmatisation et tokénisation permette de comprendre au mieux les questions.
+5. Styliser votre page html du chatbot.
+5. Idéalement il faudrait rassembler toutes vos pages html sur une même page et votre css sur une même page: pour chaque page vous utiliserez cette fonction pour la débuter  {%if page == 'nom de la page' %}, affichage de la partie section de la page, puis terminer avec cette fonction :  {% endif %}. 
 6. Initialisez votre projet en tant que dépôt public sur [GitHub](https://github.com/). La création d'un dépôt facilitera le partage de votre code avec la communauté si vous avez besoin d'aide. Si vous n'êtes pas sûr de savoir comment procéder, [lisez attentivement cette ressource Essayer Git](https://try.github.io/). 
 7. Configurez votre dépôt pour publier votre code à une adresse web. Cela sera également utile si vous avez besoin d'aide pendant un exercice, car vous pouvez partager l'URL de votre projet avec l'URL de votre dépôt. Il y a plusieurs façons de le faire, et nous fournissons quelques recommandations ci-dessous.
 
