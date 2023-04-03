@@ -28,19 +28,19 @@ def home(request): #ici on appelle l'accueil : création de la vue
     datas['page']= 'home'
     return HttpResponse(template.render(datas))
 
-def partenaire(request): #ici on appelle l'accueil : création de la vue
+def partenaire(request): #ici on appelle la page partenaire : création de la vue
     datas['page']= 'partenaire'
     return HttpResponse(template.render(datas))
 
-def projet(request): #ici on appelle l'accueil : création de la vue
+def projet(request): #ici on appelle la page projet : création de la vue
     datas['page']= 'projet'
     return HttpResponse(template.render(datas))
 
-def suivi(request): #ici on appelle l'accueil : création de la vue
+def suivi(request): #ici on appelle la page suivi : création de la vue
     datas['page']= 'suivi'
     return HttpResponse(template.render(datas))
 
-def login(request): #ici on appelle l'accueil : création de la vue
+def login(request): #ici on appelle la page connexion : création de la vue
     datas['page']= 'login'
     return HttpResponse(template.render(datas))
 
