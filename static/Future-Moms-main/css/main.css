@@ -24,6 +24,7 @@ body {
   gap: 15px;
   display: flex;
   justify-content: space-between;
+  width:100%;
 }
 
 .mobile {
@@ -172,7 +173,7 @@ body {
 
 @media screen and (max-width: 425px) {
   .image-accueil {
-    background-image: url(../image/logo-couple.jpg);
+    background-image: url(../image/logo-sansfond.png);
     background-position: center;
     background-size: contain;
     min-height: 300px;
@@ -632,9 +633,7 @@ footer ul {
 
 @media (min-width: 768px) {
   .desktop {
-    /*position: fixed;
     width: 100%;
-    bottom: 0;*/
     display: flex;
     height: 70px;
     align-items: center;
@@ -928,6 +927,7 @@ input:focus {  /*pour que le cadre de l'input ne s'affiche pas lors de la saisie
   height: 30px;
   display: flex;
   justify-content: center; 
+  align-items: center;
   margin-right: 5px;
 }
 
@@ -936,7 +936,17 @@ input:focus {  /*pour que le cadre de l'input ne s'affiche pas lors de la saisie
 }
 
 
+@media ( max-width : 768px ) {
+  .chat-zone-bouton {
+    display:flex;
+    flex-wrap: wrap;
+  }
 
+  .btn-info{
+    width:auto;
+    height:30px;
+  }
+}
 
 /*Css de la page contact */
 
